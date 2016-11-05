@@ -1,0 +1,36 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the ECRAN 8 - seo-landing - of the site/application.
+// -----------------------------------------------------------------------------
+//
+.seo-landing {
+  padding: 0;
+  .argument {
+    padding: 45px 0;
+  }
+  .argument {
+    .argument__title {
+        color: $sep-brown;
+    }
+    .argument__img {
+        margin-left: -34px;
+    }
+    .argument__details {
+        margin-left: -20px;
+        margin-top: -64px;
+    }
+    .argument__desc {
+      max-width: 335px;
+    }
+
+    .argument__sep {
+      margin-top: 14px;
+      margin-bottom: 16px;
+    }
+
+    .seo-landing__btn {
+        position: relative;
+        top: 46px;
+    }
+  }
+
+}

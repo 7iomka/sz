@@ -1,0 +1,64 @@
+$remodal-bg: #2e303c;
+$remodal-closeBg: #6679b2;
+$remodal-maxWidth: $max-width;
+$remodal-title-outlineColor: #ff2851;
+
+// html.remodal-is-locked {
+//   overflow-y: visible; // set visible scroll always
+//     body {
+//       padding-right: 0!important; // reset plugin padding-right;
+//     }
+// }
+.remodal-wrapper {
+    @include media("<=440px") {
+      padding: 0;
+    };
+}
+.remodal {
+    background-color: $remodal-bg;
+    padding: 28px 35px;
+    color: $white;
+    text-align: left;
+    max-width: $remodal-maxWidth;
+}
+.remodal__title {
+    font-family: "Proxima_Nova", sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    padding-right: 36px;
+    display: inline-block;
+    border-bottom: 2px solid $remodal-title-outlineColor;
+    max-width: 100%;
+}
+// we will use svg
+.remodal-close {
+  left: auto;
+  top: 28px;
+  right: 35px;
+  width: auto;
+  height: auto;
+  z-index: 99999;
+
+  &:before {
+    content:"";
+    display: none;
+  }
+  svg {
+    width: 36px;
+    height: 36px;
+    fill: $remodal-closeBg;
+  }
+}
+
+.remodal__desc {
+
+  a {
+    color: $yellow;
+      &.remodal__desc--pdf {
+        border-bottom: 1px solid;
+        text-decoration: none;
+      }
+  }
+}

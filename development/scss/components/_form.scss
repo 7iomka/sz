@@ -1,0 +1,155 @@
+$site-form__input-bg: #212121;
+$site-form__input-bg-focus: lighten(#212121, 5%);
+$site-form__input-color:  #d7d7d7;
+$site-form__input-border-color-focus: rgba(172, 148, 85, 0.35);
+$invalid_color_text: #f12b24;
+$invalid_color_bg: rgb(232, 208, 208);
+$label-color: #6a6a6a;
+
+.site-form {
+    // padding: 25px;
+  // &.blue-form {
+  //   @extend %blue-gradient;
+  // }
+  // .form_title {
+  //     font-family: 'Bebas_Neue', sans-serif;
+  //     font-size: 38px;
+  //     color: $white;
+  //     display: block;
+  //     line-height: 34px;
+  //     margin-bottom: 13px;
+  // }
+
+  .form-group {
+      // margin-bottom: 13px;
+      margin-bottom: 23px;
+  }
+  &.inline-form .form-group{
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+    @include media('<tablet') {
+      display: block;
+      margin-bottom: 13px;
+    }
+  }
+  label {
+      font-family: Roboto,sans-serif;
+      color: $label-color;
+      // font-size: 20px;
+      font-size: 12px;
+      font-weight: 400;
+      // line-height: 100%;
+      line-height: 28px;
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      text-align: left;
+
+      &.error {
+        color: $yellow;
+        position: absolute;
+        font-size: 14px;
+        margin-top: 3px;
+
+      }
+      @include media('<960px') {
+
+      }
+  }
+  // .dropzone label.error {
+  //   color: $red_base;
+  // }
+  textarea {
+        resize: vertical;
+  }
+  input, textarea {
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      background-color: $site-form__input-bg;
+      // width: 291px;
+      width: 341px;
+      height: 48px;
+      padding: 14px;
+      outline: none!important;
+      border: none;
+      font-family: Roboto, sans-serif;
+      color: $site-form__input-color;
+      // font-size: 20px;
+      font-size: 15px;
+      font-weight: 400;
+      // line-height: 28px;
+      line-height: 21px;
+      letter-spacing: 0.12em;
+
+      @include media('<tablet') {
+         width: 100%;
+      }
+      &.notEmpty,
+      &:focus {
+        background: $site-form__input-bg-focus;
+        box-shadow: 0 0 0 1px $site-form__input-border-color-focus inset;
+      }
+
+
+      &.error {
+        color: $invalid_color_text;
+        &:focus {
+          // background: $invalid_color_bg;
+          box-shadow: 0 0 0 1px $red_base inset;
+        }
+      }
+      &.notEmpty,
+      &.notEmpty:focus,
+      &.valid:focus {
+          background: $site-form__input-bg-focus;
+          color: $black;
+          box-shadow: 0 0 0 1px $black inset;
+      }
+  }
+  .post-comment {
+      font-size: 12px;
+      display: block;
+      margin-top: 15px;
+      color: $label-color;
+      text-align: center;
+      max-width: 338px;
+      margin-bottom: 0;
+  }
+  // input with dots (need wrapper)
+  .form-input-wrapper {
+    display: inline-block;
+    position: relative;
+    &:after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto 15px;
+      border-radius: 50%;
+      background-color: $base-brown;
+      width: 4px;
+      height: 4px;
+    }
+    input {
+      padding-right: 30px;
+    }
+  }
+
+  .success-text {
+    font-size: 20px;
+    line-height: 100%;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .error-text {
+      font-size: 21px;
+      color: #e64a33;
+      text-shadow: 0 2px 0px rgb(20, 20, 21);
+  }
+
+
+}

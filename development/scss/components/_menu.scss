@@ -1,0 +1,128 @@
+//DEFAULT STYLES FOR NON FIXED MENU
+
+/**
+ * header-navigation
+ */
+.header-menu-container {
+  padding: 18px 0;
+  transition: 0.3s cubic-bezier(0.1, 0.51, 0.54, 0.96);
+  margin: auto;
+  width: 960px;
+  max-width: 100%;
+}
+
+.nav-trigger {
+    z-index: 999;
+    position: relative;
+    text-align: right;
+    background: $black;
+    @include media('<960px') {
+      display: block;
+    }
+    .hamburger {
+      vertical-align: middle;
+    }
+    .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+      background: $white;
+    }
+
+    .text-menu {
+      padding: 15px;
+      cursor: pointer;
+
+      @include media("<375px") {
+        display: none;
+      };
+    }
+}
+
+.header-navigation {
+
+    padding: 15px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    transition: 0.5s ease-out all;
+}
+
+/**
+ * header menu and childnodes
+ */
+.header-menu {
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+
+  .header-menu_item {
+
+    &.header-menu_item--logo {
+        display: none;
+    }
+  }
+  .header-menu_item--last {
+      padding-right: 0;
+  }
+
+
+}
+
+
+// short-navigation-wrapper
+.short-navigation-wrapper {
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 0;
+  position: fixed;
+  background: #212121;
+  z-index: 999;
+
+}
+
+
+@include media("<960px") {
+    .large-navigation-wrapper {
+       display: none;
+    }
+
+    .short-navigation-wrapper {
+       display: block;
+    }
+
+}
+
+.large-navigation-container {
+
+
+  &.large-navigation-container--sticky {
+    width: 1920px;
+    min-height: 82px;
+    height: 82px;
+  }
+
+  @include media("<960px") {
+    display: none;
+  };
+}
+
+
+
+@include media(">=960px") {
+
+    .short-navigation-wrapper {
+      display: none;
+    }
+    .large-navigation-wrapper {
+      display: block;
+      width: 960px;
+      max-width: 100%;
+      max-width: 100vw;
+      margin: auto;
+
+    }
+
+
+}

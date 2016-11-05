@@ -1,0 +1,249 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles for remodal with actions (order-now, consult and etc..)
+// -----------------------------------------------------------------------------
+
+/** Skeleton styles for actions remodal **/
+.remodal--action {
+  border-radius: 5px;
+  width: 440px;
+  max-width: 100%;
+  padding: 25px 40px 40px;
+
+  @include media("<=480px") {
+    padding: 25px 20px 40px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  };
+
+
+
+  .remodal-close {
+    right: 18px;
+    top: 15px;
+  }
+  .remodal__title {
+      border: none;
+      padding: 0;
+      text-align: center;
+      display: block;
+      margin: 0 0 15px;
+      position: relative;
+      z-index: 10;
+  }
+.remodal__content-wrapper {
+  margin: auto;
+}
+  .remodal__description {
+    color: $yellow;
+    line-height: 125%;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .remodal--action__icon {
+      position: relative;
+      display: block;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      width: 50px;
+      height: 50px;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+  }
+  .remodal__body {
+    min-height: 320px;
+    transition: 1s ease all;
+    position: relative;
+ }
+
+  /** remodal--order **/
+  &.remodal--order .remodal--action__icon {
+      left: 6px;
+      background-image: image('modal-icons/order-now.png');
+  }
+  /** remodal--consult **/
+  &.remodal--consult .remodal--action__icon {
+      background-image: image('modal-icons/consult-now.png');
+      animation: dropShadow 3s ease infinite;
+  }
+  @keyframes dropShadow {
+    0% {
+      -webkit-filter: drop-shadow(0 0 0px rgba(245, 213, 0, 0.6));
+    }
+    50% {
+        -webkit-filter: drop-shadow(0 0 13px rgba(245, 213, 0, 0.6));
+    }
+  }
+
+  /** remodal--measure **/
+  &.remodal--measure .remodal--action__icon {
+      background-image: image('modal-icons/measure-now.png');
+      transform-origin: 50% 50%;
+    transform-style: preserve-3d;
+    animation: floating 5s -1s infinite;
+
+    &:before {
+      position: absolute;
+      content: "";
+      z-index: -1;
+      left: 0;
+      right: 0;
+      margin: auto;
+      bottom: 7px;
+      width: 100%;
+      height: 47%;
+      border-radius: 50%;
+      transform-origin: 0% 0%;
+      animation: scalling 5s -1s linear infinite;
+      transform-style: preserve-3d;
+    }
+  }
+
+  @keyframes floating {
+    0%, 100% {
+      -webkit-transform: translateY(-5%);
+              transform: translateY(-5%);
+    }
+    50% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+  }
+
+  @keyframes scalling {
+    0%, 100% {
+
+              transform: translateX(62px) translateY(100%) scaleZ(1);    box-shadow: -62px 0 25px rgba(128, 107, 10, 0.1);
+    }
+    50% {
+              transform: translateX(62px) translateY(100%) scaleZ(0.5);    box-shadow: -62px 0 25px rgba(128, 107, 10, 0.4);
+    }
+  }
+
+  .remodal--action__title {
+      display: block;
+      margin-top: 15px;
+  }
+  .site-form--action {
+    transform: translateY(0);
+    opacity: 1;
+    transition: 0.5s ease;
+
+    &.site-form--action--hidden {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+  }
+  /** form elements **/
+
+  form {
+
+
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    input, textarea {
+      color: $white;
+      width: 100%;
+      text-shadow: 1px 1px rgba(66, 66, 66, 0.56);
+
+
+      &.notEmpty,
+      &.notEmpty:focus,
+      &.valid:focus {
+
+          color: $white;
+      }
+    }
+
+    textarea {
+      height: auto;
+    }
+
+    label {
+      line-height: 100%;
+      margin-bottom: 10px;
+    }
+
+    .btn--action-submit {
+      width: 100%;
+      height: 60px;
+      margin-top: 20px;
+      font-size: 25px;
+
+      @include media("<=375px") {
+        font-size: 20px;
+        height: 50px;
+      };
+    }
+
+  }
+
+  .btn--action-success-close {
+    width: 100%;
+    height: 60px;
+    margin-top: 45px;
+    font-size: 25px;
+    margin-bottom: 45px;
+
+    @include media("<=375px") {
+      font-size: 20px;
+      height: 50px;
+    };
+  }
+
+  .order-info__success-id {
+      font-family: Bebas_Neue,sans-serif;
+      font-weight: 400;
+      margin: 35px auto 35px;
+      padding: 15px 20px;
+      max-width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      box-shadow: 0 0 0 5px $yellow inset;
+      font-size: 45px;
+      color: $yellow;
+      text-align: center;
+  }
+  .addToBookmark {
+    color: $yellow;
+    cursor: pointer;
+    border-bottom: 1px solid $yellow;
+    line-height: 100%;
+    display: inline-block;
+    margin: 5px 0 10px;
+    text-decoration: none;
+  }
+
+
+  .success-icon {
+      display: none;
+      svg {
+          width: 200px;
+          height: 200px;
+          display: block;
+          margin: auto;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+
+          path {
+            fill: rgba(46, 48, 60, 0.66);
+          }
+      }
+  }
+
+
+}
+
+/**
+ * settings for different modals
+ */

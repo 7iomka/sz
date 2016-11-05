@@ -1,0 +1,92 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+.btn {
+  cursor: pointer;
+  // border-radius: 5px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-align: center;
+  // display: inline-block;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  max-width: 100%;
+
+// make text-align middle vertical
+  display: table-cell;
+ vertical-align: middle;
+
+ /* Reset */
+ float: none;
+ line-height: normal;
+
+ //specific styles
+ letter-spacing: 0.2em;
+ text-transform: uppercase;
+
+  // font-family: "Proxima_Nova", sans-serif;
+  //by color
+  &.btn--brown {
+    &.btn--bordered {
+        background: none;
+        background: transparent;
+    }
+    background: $base-brown;
+    // color: $text-color;
+    color: $white;
+    box-shadow: 0 0 0 2px $base-brown;
+    &:hover {
+        background: darken($base-brown, 5%);
+        &.btn--bordered {
+          background: $base-brown;
+        }
+        text-decoration: none;
+        text-shadow: 1px 1px transparentize($black, 0.7);
+    }
+  }
+  &.btn--red {
+    background: $red-button-bg;
+    color: $white;
+    &:hover {
+      background: darken($red-button-bg, 10%);
+      color: $white;
+      text-decoration: none;
+    }
+  }
+  &.no-bg{
+    text-decoration: underline;
+
+    &:hover {
+      color: darken($base-brown, 5%);
+    }
+  }
+
+  /*by size*/
+  &.btn--small {
+    width: 239px;
+    height: 49px;
+    line-height: 49px;
+    font-size: 11px;
+  }
+
+  &.btn--large{
+      width: 338px;
+      height: 54px;
+      padding: 10px 20px;
+      font-size: 11px;
+      max-width: 100%;
+      @include media('>=phone', '<=480px') {
+        line-height: normal;
+      }
+
+  }
+  &.btn--medium {
+      width: 260px;
+      height: 50px;
+      font-size: 20px;
+      font-weight: 700;
+      font-size: 11px;
+  }
+}

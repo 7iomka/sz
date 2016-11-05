@@ -1,0 +1,69 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the ECRAN 6 of the site/application.
+// -----------------------------------------------------------------------------
+//
+.arguments {
+  padding-bottom: 0;
+  h2 {
+    margin-bottom: 100px;
+  }
+
+}
+.argument {
+  padding: 90px 0;
+    &.argument--first {
+      padding: 0 0 40px 0;
+    }
+
+    // dark inverted styles
+    &.argument--inverted {
+      background-color: #141414;
+      background: radial-gradient(circle closest-side at 50%, #202020 0%, #141414 100%);
+
+      .argument__details {
+        color: #ddd;
+      }
+      .argument__title {
+        color: $white;
+      }
+
+      .argument__totals {
+        color: #f9f9f9;
+      }
+    }
+
+    .argument__title {
+      font-family: "Bebas_Neue", sans-serif;
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .argument__desc {
+      font-size: 15px;
+      line-height: 17px;
+      max-width: 360px;
+      p, span {
+        line-height: inherit;
+      }
+    }
+
+    .argument__details {
+      color: $black;
+    }
+
+    .argument__sep {
+      background-color: #705d2f;
+      width: 137px;
+      height: 1px;
+      margin: 20px 0;
+    }
+
+    .argument__total {
+      font-size: 17px;
+      line-height: 20px;
+      margin-bottom: 0;
+    }
+    .argument__img {
+      max-width: 100%;
+    }
+}

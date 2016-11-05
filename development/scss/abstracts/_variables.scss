@@ -1,0 +1,112 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+/// Container's maximum width
+/// @type Length
+
+$max-width: 960px !default;
+
+
+
+/// Regular font family
+/// @type List
+// $text-font-stack: 'Proxima_Nova', sans-serif !default;
+$text-font-stack: 'Roboto', sans-serif !default;
+/// Font-family for headers (h1,h2,h3..)
+/// @type List
+$header-font: 'Bebas_Neue', sans-serif !default;
+$label-font: 'Roboto', sans-serif !default;
+
+
+$base-brown: #ac9455;
+$accent-brown: #ffefb5;
+$sep-brown: #a18b50;
+$default-dark: #141414;
+
+/// Base colors
+
+
+//Light-colors
+
+///Dark white
+/// @type Color
+$dark-white: #fefefe !default;
+
+///White
+/// @type Color
+$white: #fff !default;
+
+///Silver
+/// @type Color
+$silver: #f5f5f5 !default;
+
+///Dark silver
+/// @type Color
+$dark-silver: #ececec !default;
+$black: #000 !default;
+///Lighten gray 1
+/// @type Color
+$lighten-gray-1: #b7b7b7 !default;
+
+///Lighten gray 2
+/// @type Color
+$lighten-gray-2: #bababa !default;
+
+///Gray 1
+/// @type Color
+$gray-1: #a2a2a2 !default;
+
+
+///Gray 2
+/// @type Color
+$gray-2: #727272 !default;
+
+
+///Gray 3
+/// @type Color
+$gray-3: #7d7d7d !default;
+
+///Dark gray
+/// @type Color
+$gray: #3e3e3e !default;
+
+
+///Main text-color - black
+/// @type Color
+$text-color: $default-dark !default;
+$dark-black: #141414 !default;
+
+/// @type Color
+$yellow: #ffd200 !default;
+$red_base: #c5313d;
+$red-button-bg: $red_base;
+$yellow-button-bg: $yellow;
+
+$blue-gray: #263e4f;
+
+
+
+
+
+
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+// $breakpoints: (
+//   'small'  : 767px,
+//   'medium' : 992px,
+//   'large'  : 1200px
+// ) !default;
+//
+
+
+
+
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: '/' !default;

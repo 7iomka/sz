@@ -1,0 +1,157 @@
+
+/** nav buttons **/
+.ui-datepicker-prev .ui-icon,.ui-datepicker-next .ui-icon{
+    -webkit-transition: .35s ease all;
+    -o-transition: .35s ease all;
+    -moz-transition: .35s ease all;
+    transition: .35s ease all;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    cursor: pointer;
+    text-indent: -9999px;
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    background-size: 25%;
+
+    .ui-state-disabled & {
+      cursor: default;
+    }
+}
+
+.ui-datepicker-prev .ui-icon{
+    background-image: image('slider-prev.png');
+}
+.ui-datepicker-prev:hover .ui-icon{
+    background-image: image('slider-prev-hover.png');
+}
+
+.ui-datepicker-next .ui-icon{
+    background-image: image('slider-next.png');
+}
+.ui-datepicker-next:hover .ui-icon{
+    background-image: image('slider-next-hover.png');
+}
+
+.ui-datepicker {
+    width: 100%;
+    padding: .2em .2em 0;
+}
+
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 36px;
+    width: 36px;
+}
+
+.ui-datepicker .ui-datepicker-prev {
+    left: 2px;
+}
+
+.ui-datepicker .ui-datepicker-next {
+    right: 2px;
+}
+
+.ui-datepicker .ui-datepicker-title {
+    margin: 0 2.3em;
+    line-height: 1.8em;
+    text-align: center;
+}
+
+.ui-datepicker .ui-datepicker-header {
+  position: relative;
+  padding: 0.2em;
+  background: #2e303c;
+}
+
+.ui-datepicker table {
+    width: 100%;
+    font-size: .9em;
+    border-collapse: collapse;
+    margin: 0 0 .4em;
+}
+
+.ui-datepicker td {
+    border: 0;
+    padding: 1px;
+    text-align: center;
+}
+
+.ui-datepicker table thead {
+  background: rgb(33, 35, 49);
+  color: #bdbfd0;
+}
+
+.ui-datepicker th {
+    padding: .7em .3em;
+    text-align: center;
+    font-weight: 400;
+    border: 0;
+    font-size: 12px;
+}
+
+.ui-datepicker tbody {
+      background: #272a31;
+}
+
+.ui-datepicker td span, .ui-datepicker td a {
+  display: block;
+  padding: 0.5em 0.2em;
+  text-align: center;
+  text-decoration: none;
+  color: #c5c5d2;
+  position: relative;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.27), 1px 2px 0px #1b2e3b;
+}
+
+.ui-state-disabled {
+    cursor: default!important;
+}
+
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled {
+    opacity: .35;
+    filter: Alpha(Opacity=35);
+}
+
+.ui-state-disabled {
+    cursor: default!important;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    color: #ffd200;
+    position: relative;
+    background: rgba(33, 33, 33, 0.21);
+}
+
+.ui-state-default:before {
+    content: "";
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 0 1px transparent inset;
+    opacity: 0;
+    transition: 0.5s ease all;
+}
+
+.ui-state-default.ui-state-active:before {
+    animation: doShadow 0.5s ease forwards;
+}
+
+div#datepicker {
+    margin: 0 -10px;
+    background: #272a31;
+}
+
+@keyframes doShadow {
+    100% {
+        box-shadow: 0 0 0 1px #ffd200 inset;
+        opacity: 1;
+    }
+}

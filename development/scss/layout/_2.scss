@@ -1,0 +1,89 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the ECRAN 2 (grant) of the site/application.
+// -----------------------------------------------------------------------------
+
+.grant {
+    background: $white;
+    position: relative;
+
+
+  /*
+******************* share event title *****************
+   */
+
+  .share-event__title-wrappper {
+      max-width: 800px;
+      height: 250px;
+      margin: 50px auto 0;
+      border: 4px solid #a18b50;
+  }
+
+
+  .share-event__title {
+      position: relative;
+      font-family: "Bebas_Neue", sans-serif;
+  }
+
+  .p1 {
+      font-size: 80px;
+      line-height: 100%;
+      position: absolute;
+      left: 93px;
+      top: -40px;
+      background: white;
+      padding: 0 20px;
+  }
+
+
+  .p2 {
+      color: #a28b50;
+      font-size: 140px;
+      display: block;
+      position: relative;
+      left: 21px;
+      top: 29px;
+      line-height: 100%;
+  }
+
+  .p3 {
+      position: relative;
+      left: 44px;
+      top: -6px;
+      font-size: 40px;
+      line-height: 40px;
+      margin-right: 69px;
+  }
+
+  .p4 {
+      font-size: 70px;
+      line-height: 100%;
+      position: relative;
+      top: 15px;
+  }
+
+  /*
+**************** grant list *****************
+   */
+
+   .grant__item {
+     margin-bottom: 50px;
+   }
+
+   .grant__title {
+       font-family: "Bebas_Neue", sans-serif;
+       font-size: 50px;
+       color: $sep-brown;
+       line-height: 100%;
+   }
+
+
+   .grant__list {
+       margin: 88px 32px 0 26px;
+       text-align: center;
+   }
+
+   .grant__desc {
+        margin-top: 11px;
+    }
+
+}

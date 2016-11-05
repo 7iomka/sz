@@ -1,0 +1,13 @@
+/**
+ * SquareList
+ */
+$square-list-margin-top: 60px;
+$square-list-margin-bottom: 54px;
+ @import "squareItem";
+.square-list {
+    margin-top: $square-list-margin-top;
+    margin-bottom: $square-list-margin-bottom;
+
+
+
+}

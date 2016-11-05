@@ -1,0 +1,255 @@
+/** modification preview of remodal for gallery-items **/
+.remodal--gallery {
+  max-width: 1200px;
+  padding: 0;
+
+
+      .remodal--gallery__scene-wrapper,
+      .remodal--gallery__description {
+        @extend %inlineBlock;
+      }
+
+      .remodal--gallery__scene-wrapper {
+          // max-width: 775px;
+          max-width: percentage(775/1125);
+          @include media("<820px") {
+            max-width: 100%;
+
+          };
+      }
+
+      .remodal--gallery__scene__image {
+          max-width: 100%;
+      }
+
+      .remodal__title,
+      .remodal__desc,
+      .remodal__calc-btn {
+        transition: 0.5s ease;
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .short_hidden {
+          transition: 0.4s ease;
+          opacity: 0;
+          transform: translateY(-100%);
+      }
+
+      .short_hidden-up {
+          transition: 0.4s ease;
+          opacity: 0;
+          transform: translateY(-100%);
+      }
+
+      .short_shuffle {
+          transition: 0.4s ease;
+          transform: perspective(800px) scaleY(0.8) translateY(0px) rotateX(45deg);
+          opacity: 0.8;
+          box-shadow: 0 15px 50px black;
+      }
+
+      @for $nth_short from 1 through 5 {
+        .short_hidden:nth-child($nth_short) {
+          transition-delay: (0.1*$nth_short)s;
+        }
+      }
+
+      .remodal__title {
+          margin-top: 0;
+          word-break: break-word;
+          @include media("<820px") {
+            padding-right: 0;
+            font-size: 26px;
+          };
+      }
+      .remodal--gallery__description {
+          // max-width: 350px;
+          max-width: percentage((1125-775)/1125);
+          margin-top: 19px;
+          padding-left: 19px;
+          padding-right: 36px;
+          overflow: hidden;
+
+          @include media("<820px") {
+            max-width: 100%;
+            width: 100%;
+            padding: 15px;
+            text-align: center;
+          };
+      }
+
+      .remodal-close {
+          top: 10px;
+          right: 5px;
+          z-index: 9999;
+            @include media("<820px") {
+              background: rgba(208, 210, 216, 0.38);
+              height: 46px;
+              padding: 5px;
+                svg {
+                  fill: black;
+                  opacity: 0.7;
+                  &:hover {
+                    opacity: 1;
+                  }
+                }
+            };
+      }
+
+
+
+
+/******* SETTINGS FOR GALLERY SLIDER IN MODAL ***********/
+&.remodal--gallery-assortiment {
+
+
+
+.remodal__calc-btn {
+  margin-top: 35px;
+  font-size: 17px;
+  @include media("<=1024px") {
+    padding: 10px;
+    height: auto;
+  };
+}
+
+  .remodal--gallery__scene-inner {
+      position: relative;
+      overflow: hidden;
+  }
+
+  .remodal--gallery__scene__material-wrapper {
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      top: 58px;
+      right: 36px;
+      z-index: 999;
+      opacity: 1;
+      transform: translateX(0);
+      transition: 0.8s ease;
+      pointer-events: none;
+      -webkit-user-select: none;
+
+      @include media(">=820px", "<1024px") {
+        width: 95px;
+        height: 95px;
+      };
+      @include media("<641px") {
+        width: 75px;
+        height: 75px;
+      };
+      @include media("<481px") {
+        width: 60px;
+        height: 60px;
+      };
+
+      .remodal--gallery__scene__material__img {
+          width: 100%;
+          opacity: 1;
+
+      }
+
+      &.smallHiddenInRight {
+        transform: translateX(150%);
+        opacity: 0;
+      }
+
+      &.shortInvisible {
+
+        .remodal--gallery__scene__material__img {
+          opacity: 0;
+          transition: 0.8s ease;
+        }
+
+        &:before {
+          opacity: 0.25;
+        }
+      }
+
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 0 0 4px white;
+        transition: 0.5s ease;
+        opacity: 1;
+      }
+  }
+
+
+
+  .remodal--gallery__scene {
+
+  }
+  .remodal--gallery__scene__image-wrapper .remodal--gallery-slider {
+      width: 100%;
+      height: 580px;
+      background-size: cover;
+  }
+
+  .remodal--gallery__scene__image {
+      width: 100%;
+  }
+
+  .remodal--gallery__scene--container {
+      width: 100%;
+  }
+
+  .remodal--gallery__scene-wrapper {
+      width: 100%;
+  }
+
+.remodal--gallery__thumbs {
+  position: relative;
+  padding: 20px 51px;
+}
+
+  .remodal--gallery__thumb {
+    height: 100px;
+    width: 100px;
+    transition: 0.5s ease;
+    float: left;
+    overflow: hidden;
+    height: 100%;
+    border: 2px solid rgba(255, 255, 255, 0);
+    margin-bottom: 5px;
+    margin-right: 5px;
+    outline: none;
+    @include media("<=480px") {
+      // margin: 0 3px;
+    };
+
+    &.slick-current {
+      border-color: #ff2851;
+    }
+  }
+  .synced .remodal--gallery__thumb {
+    box-shadow: 0px 0px 0px 1px $black, 0px 0px 0px 5px #263e4f;
+    transform: translateY(3px);
+  }
+
+
+
+
+  .remodal--gallery__thumb__image {
+      height: 100px;
+      transform: translateX(-50%);
+      transform: translate3d(-50%,0,0);
+      position: relative;
+      left: 50%;
+      // margin: 0 -10px;
+
+  }
+
+
+
+}
+
+
+}

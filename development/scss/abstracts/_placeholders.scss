@@ -1,0 +1,44 @@
+// -----------------------------------------------------------------------------
+// This file contains all placeholders.
+// -----------------------------------------------------------------------------
+
+%red-gradient {
+    @include gradient-directional(45deg, #c5313d,0%, #4f1622, 100%);
+}
+
+%red-icon-gradient {
+    @include gradient-directional(-173deg, #c5313d,0%, #4f1622, 100%);
+}
+%red-result-gradient {
+    @include gradient-directional(-180deg, #c5313d,0%, #4f1622, 100%);
+}
+
+%red-bg-gradient {
+    @include gradient-directional(131deg, #c5313d,0%, #4f1622, 100%);
+}
+
+%blue-gradient {
+    @include gradient-directional(90deg, #263e4f,0%, #1b2e3b, 100%);
+}
+
+%small-text {
+  font-size: 13px;
+}
+
+%visually-hidden {
+  @include visually-hidden;
+}
+
+%equal-height {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-basis: 100%;
+}
+
+%inlineBlock {
+  display: inline-block;
+  margin-right: -.25em;
+  min-height: 1px;
+  vertical-align: top;
+}

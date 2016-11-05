@@ -1,0 +1,86 @@
+// -----------------------------------------------------------------------------
+// This file contains all @font-face declarations, if any.
+// -----------------------------------------------------------------------------
+@font-face {
+  font-family: 'Proxima_Nova';
+    src: font('Proxima_Nova/proxima_nova_regular.eot');
+    src: font('Proxima_Nova/proxima_nova_regular.eot?#iefix') format('embedded-opentype'),
+    font('Proxima_Nova/proxima_nova_regular.woff2') format('woff2'),
+    font('Proxima_Nova/proxima_nova_regular.woff') format('woff'),
+    font('Proxima_Nova/proxima_nova_regular.ttf') format('truetype'),
+    font('Proxima_Nova/proxima_nova_regular.svg#proxima_nova_rgregular') format('svg');
+    font-weight: 400;
+    font-style: normal
+}
+
+@font-face {
+  font-family: 'Proxima_Nova';
+    src: font('Proxima_Nova/proxima_nova_bold.eot');
+    src: font('Proxima_Nova/proxima_nova_bold.eot?#iefix') format('embedded-opentype'),
+    font('Proxima_Nova/proxima_nova_bold.woff2') format('woff2'),
+    font('Proxima_Nova/proxima_nova_bold.woff') format('woff'),
+    font('Proxima_Nova/proxima_nova_bold.ttf') format('truetype'),
+    font('Proxima_Nova/proxima_nova_bold.svg#proxima_nova_rgbold') format('svg');
+    font-weight: 700;
+    font-style: normal
+}
+
+@font-face {
+  font-family: 'Proxima_Nova';
+    src: font('Proxima_Nova/proxima_nova_extrabold.eot');
+    src: font('Proxima_Nova/proxima_nova_extrabold.eot?#iefix') format('embedded-opentype'),
+    font('Proxima_Nova/proxima_nova_extrabold.woff2') format('woff2'),
+    font('Proxima_Nova/proxima_nova_extrabold.woff') format('woff'),
+    font('Proxima_Nova/proxima_nova_extrabold.ttf') format('truetype'),
+    font('Proxima_Nova/proxima_nova_extrabold.svg#proxima_nova_thextrabold') format('svg');
+    font-weight: 900;
+    font-style: normal
+}
+
+
+@font-face {
+  font-family: 'Bebas_Neue';
+      src: font('Bebas_Neue/bebas_neue.eot');
+      src: font('Bebas_Neue/bebas_neue.eot?#iefix') format('embedded-opentype'),
+      font('Bebas_Neue/bebas_neue.woff2') format('woff2'),
+      font('Bebas_Neue/bebas_neue.woff') format('woff'),
+      font('Bebas_Neue/bebas_neue.ttf') format('truetype'),
+      font('Bebas_Neue/bebas_neue.svg#proxima_nova_rgregular') format('svg');
+      font-weight: 400;
+      font-style: normal
+}
+
+
+@font-face {
+  font-family: 'lg';
+  src: font('Lg/lg.eot?n1z373');
+  src: font('Lg/lg.eot?#iefixn1z373') format('embedded-opentype'), font('Lg/lg.woff?n1z373') format('woff'), font('Lg/lg.ttf?n1z373') format('truetype'), font('Lg/lg.svg?n1z373#lg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Roboto';
+      src: font('Roboto/robotoregular.eot');
+      src: font('Roboto/robotoregular.eot?#iefix') format('embedded-opentype'),
+      font('Roboto/robotoregular.woff2') format('woff2'),
+      font('Roboto/robotoregular.woff') format('woff'),
+      font('Roboto/robotoregular.ttf') format('truetype'),
+      font('Roboto/robotoregular.svg#proxima_nova_rgregular') format('svg');
+      font-weight: 400;
+      font-style: normal
+
+}
+
+@font-face {
+  font-family: 'Roboto';
+      src: font('Roboto/robotobold.eot');
+      src: font('Roboto/robotobold.eot?#iefix') format('embedded-opentype'),
+      font('Roboto/robotobold.woff2') format('woff2'),
+      font('Roboto/robotobold.woff') format('woff'),
+      font('Roboto/robotobold.ttf') format('truetype'),
+      font('Roboto/robotobold.svg#proxima_nova_rgregular') format('svg');
+      font-weight: 700;
+      font-style: normal
+}

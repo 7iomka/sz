@@ -1,0 +1,527 @@
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+/**
+ * Set up a decent box model on the root element
+ */
+html {
+  box-sizing: border-box;
+}
+html, body {
+  width: 100%;
+}
+body {
+  min-width: 100%;
+  table-layout: fixed;
+  background: $white;
+}
+@include media('>=desktop') {
+  ::-webkit-scrollbar-track
+  {
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+      border-radius: 10px;
+      background-color: #F5F5F5;
+  }
+
+  ::-webkit-scrollbar
+  {
+      width: 12px;
+      margin-left: -12px;
+      background-color: #F5F5F5;
+      position: absolute;
+  }
+
+  ::-webkit-scrollbar-thumb
+  {
+      border-radius: 10px;
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+      background-color: #555;
+  }
+
+};
+
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+* {
+  // transition: 0.25s cubic-bezier(0.52, 0.76, 0.08, 0.93);
+}
+
+.inverted {
+  h1,
+  h2,
+  a {
+    color: $white;
+  }
+}
+
+/**
+ * Basic styles for links
+ */
+a {
+  color: $text-color;
+  text-decoration: none;
+
+  &.underline {
+    text-decoration: underline;
+  }
+  @include on-event {
+    // color: $text-color;
+    text-decoration: underline;
+  }
+
+  &.brown {
+    color: $base-brown;
+    @include on-event {
+      color: lighten($base-brown, 10%);
+    }
+  }
+
+}
+
+// Remove tap highlight on iOS
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.brown {
+  color: $base-brown;
+}
+.accent-brown {
+  color: $accent-brown;
+}
+
+.strong {
+  font-weight: 700;
+}
+p {
+    margin: 0 0 .75em;
+}
+
+section {
+    padding: 60px 0;
+    overflow: hidden;
+        position: relative;
+    @include media('<480px') {
+      padding: 40px 0;
+    }
+
+    h2 {
+      text-align: center;
+      position: relative;
+      // color: $black;
+      color:  #141414;
+
+      @include media('>=480px', '<tablet') {
+        font-size: 50pt;
+        font-size: 9vw;
+      }
+      @include media('<480px') {
+        font-size: 40px !important;
+        margin-bottom: 0.67em;
+      }
+      .brown {
+         color: $sep-brown;
+       }
+        > span {
+          display: block;
+
+
+        }
+        &.reverse{
+          color: $white;
+        }
+        &:before {
+          content: "";
+          background-color: $yellow;
+          width: 201px;
+          height: 2px;
+          display: block;
+          position: absolute;
+          top: -10px;
+          left: 0;
+          right: 0;
+          margin: auto;
+          transition: 1s ease all;
+          transition-delay: 0.5s;
+        }
+        &.beforeAnim:before {
+            opacity: 0;
+        }
+        &.reverse:before {
+          // background-color: $white;
+        }
+        &.reverse--contast {
+          &:before {
+            background: #c5313d;
+          }
+        }
+    }
+}
+
+
+form {
+
+    legend {
+      font-size: 32px;
+      font-weight: 400;
+      line-height: 28px;
+      font-family: "Bebas_Neue", sans-serif;
+      color: white;
+      letter-spacing: 2px;
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 25px;
+  }
+}
+.is_android_default_bro {
+    .photo-faq .swiper-wrapper {
+      position:relative;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+    }
+    .photo-faq .slider img {
+        display: inline-block!important;
+        float: left;
+        -webkit-flex-shrink: 0;
+        -ms-flex: 0 0 auto;
+        flex-shrink: 0;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    * {
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+      outline: none;
+    }
+
+    img {
+      -webkit-user-select: none !important;
+      -khtml-user-select: none !important;
+      -moz-user-select: none !important;
+      -o-user-select: none !important;
+      user-select: none !important;
+      outline: none !important;
+    }
+
+    .short-navigation-wrapper .header-navigation li,
+    .short-navigation-wrapper .header-navigation.header-navigation--expanded .header-menu-container,
+    .no-flexwrap .short-navigation-wrapper .header-navigation .header-menu,
+    .short-navigation-wrapper .header-navigation.header-navigation--expanded .header-menu, .short-navigation-wrapper .header-navigation.header-navigation--expanded .header-menu_item, .short-navigation-wrapper .header-navigation.header-navigation--expanded .header-menu_button, .short-navigation-wrapper .header-navigation.header-navigation--expanded .header-menu_phone {
+      transition: none;
+      transition-delay: 0s;
+    }
+
+      .short-navigation-wrapper .header-navigation.header-navigation--expanded .header-menu-container {
+          padding-top: 60px;
+         }
+
+      .short-navigation-wrapper .header-navigation.header-navigation--expanded .header-menu-container {
+          position: relative;
+          padding-bottom: 100%;
+      }
+
+
+}
+/*IF Apple bugs */
+.isApple {
+  .submit-loader {
+    position: absolute;
+    background: image('loader.gif') 50% no-repeat;
+    &:after,
+    &:before,
+    *,
+    *:after,
+    *:before {
+      display: none !important;
+    }
+  }
+  .submit-loader.submit-loader--paused {
+    visibility: hidden;
+  }
+  .submit-loader {
+    position: absolute;
+  }
+  .comparation-line:nth-child(3) .comparation-block, .comparation-line:nth-child(3) .or{
+    min-height: 300px;
+  }
+  .comparation-line:nth-child(3), .comparation-line:nth-child(3) .comparation-block_inner, .comparation-line:nth-child(3) .comparation-column {
+    min-height: 294px;
+  }
+}
+
+/*IF is Any mobile - styling form*/
+.isAnyMobile {
+  .submit-loader {
+    position: absolute;
+    background: image('loader.gif') 50% no-repeat;
+    &:after,
+    &:before,
+    *,
+    *:after,
+    *:before {
+      display: none !important;
+    }
+  }
+
+  #notForFallBack {
+    display: none;
+  }
+
+    .inputfile {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+
+    .inputfile + label {
+        max-width: 100%;
+        width: 100%!important;
+        font-size: 17px;
+        /* 20px */
+        font-weight: 700;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+        display: inline-block;
+        overflow: hidden;
+        padding: 0.625rem 1.25rem;
+        margin-bottom: 10px;
+        /* 10px 20px */
+    }
+
+
+
+    .inputfile:focus + label,
+    .inputfile.has-focus + label {
+        outline: 1px dotted #000;
+        outline: -webkit-focus-ring-color auto 5px;
+    }
+
+    .inputfile + label * {
+        /* pointer-events: none; */
+        /* in case of FastClick lib use */
+    }
+
+    .inputfile + label svg {
+        width: 1em;
+        height: 1em;
+        vertical-align: middle;
+        fill: currentColor;
+        margin-top: -0.25em;
+        /* 4px */
+        margin-right: 0.25em;
+        /* 4px */
+    }
+
+
+    /* style 1 */
+
+    .inputfile-1 + label {
+        color: #f1e5e6;
+        background-color: #ececec;
+    }
+
+    .inputfile-1:focus + label,
+    .inputfile-1.has-focus + label,
+    .inputfile-1 + label:hover {
+        background-color: $red_base;
+        color: $white;
+    }
+
+}
+// .short-navigation-wrapper {
+//   display: none!important;
+// }
+
+/*IF browsers not support flex-wrap */
+.no-flexwrap {
+
+
+  .comparation-line,
+  .comparation-line .col,
+  .comparation-results,
+  .some_list,
+  .photo-faq__step,
+  .econom-section .econom-sqare-outer,
+  .juridic .warning-block,
+  .footer-contacts,
+  .photo-faq .photo-overlay-container,
+  footer.footer .photo-overlay-container,
+  .econom-container,
+  .econom-section .square-list.econom-list,
+  .footer-contacts .phones,
+  .photo-faq__step,
+  .gallery .gallery__container,
+  .short-navigation-wrapper .header-navigation .header-menu-container,
+  .calculator .calculator__steps__line,
+  .radio-like-checkbox-container
+   {
+      display: block;
+  }
+  .gallery .gallery__container .mix {
+    float: left;
+  }
+
+  .radio-like-checkbox-wrapper {
+    display: inline-block;
+  }
+
+  .square-item__link {
+      -webkit-user-select: none;
+  }
+
+
+  input[type=radio].radio-like-checkbox:checked + label.label_radio-like-checkbox {
+    display: block;
+  }
+  /** if facet isset - go animation appear radio-like-checkbox **/
+      #radio-b5-facet:checked + label + label + .question + .radio-like-checkbox-container .radio-like-checkbox-wrapper{
+          transform: translateY(0);
+          opacity: 1;
+      }
+
+      #radio-b5-facet + label + label + .question + .radio-like-checkbox-container .radio-like-checkbox-wrapper {
+          opacity: 0;
+          transform: translateY(30%);
+          transition: 0.5s ease all;
+      }
+  @for $chi2 from 1 through 10 {
+         #radio-b5-facet + label + label + .question + .radio-like-checkbox-container .radio-like-checkbox-wrapper:nth-child(#{$chi2}) {
+             transition-delay: #{$chi2/10}s;
+         }
+       }
+
+
+.short-navigation-wrapper .header-navigation .header-menu-container {
+      transform: translate(0, -100%);
+}
+.short-navigation-wrapper .header-navigation .header-menu {
+      transform: translate(0, -100%);
+}
+
+.remodal-wrapper {
+  z-index: 999999!important;
+}
+.slick-slider {
+touch-action: auto;
+-ms-touch-action: auto;
+}
+
+.remodal--gallery--wrapper {
+    position: relative;
+    z-index: 999;
+}
+
+.photo-faq__step {
+  align-items: flex-start;
+  text-align: center;
+}
+.photo-faq__step > div {
+  display: inline-block;
+  vertical-align: middle;
+}
+.photo-faq__step .square-item__desc {
+  flex-basis: auto;
+}
+  .photo-faq__form .drop-container {
+      display: block;
+      text-align: center;
+      .drop-cell {
+        display: inline-block;
+        max-width: 110px;
+        margin: 10px;
+      }
+    }
+
+    .econom-section .econom-sqare-outer,
+    .econom-section .square-list.econom-list,
+    .econom-section .square-item {
+        width: 100%;
+        text-align: center;
+        display: block;
+        margin:auto;
+    }
+    .econom-section .square-list.econom-list{
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+    .econom-right-part {
+      max-width: 100%;
+    }
+
+    .econom-section .square-item__img {
+        padding: 5px;
+        margin: 0 auto;
+        display: block;
+    }
+    .econom-section .square-item__desc {
+      margin-left: 0;
+      display: block;
+    }
+
+    .assortment .some_list__item {
+      display: inline-block;
+      width: 100%;
+      max-width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .footer-contacts .phones li {
+      display: inline-block;
+    }
+    .footer-contacts .btn {
+      margin: 15px auto;
+      display: block;
+    }
+
+    .photo-faq .swiper-wrapper {
+      position:relative;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+    }
+    .photo-faq .slider img {
+        display: inline-block!important;
+        float: left;
+        -webkit-flex-shrink: 0;
+        -ms-flex: 0 0 auto;
+        flex-shrink: 0;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+
+
+}

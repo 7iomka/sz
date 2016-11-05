@@ -1,0 +1,98 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+/// Make a context based selector a little more friendly
+/// @author Hugo Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+// Gradients
+
+
+
+// Horizontal gradient, from left to right
+//
+// Creates two color stops, start and end, by specifying a color and position for each color stop.
+// Color stops are not available in IE9 and below.
+@mixin gradient-horizontal($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: -webkit-linear-gradient(left, $start-color $start-percent, $end-color $end-percent); // Safari 5.1-6, Chrome 10+
+  background-image: -o-linear-gradient(left, $start-color $start-percent, $end-color $end-percent); // Opera 12
+  background-image: linear-gradient(to right, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=1); // IE9 and down
+}
+
+// Vertical gradient, from top to bottom
+//
+// Creates two color stops, start and end, by specifying a color and position for each color stop.
+// Color stops are not available in IE9 and below.
+@mixin gradient-vertical($start-color: #555, $end-color: #333, $start-percent: 0%, $end-percent: 100%) {
+  background-image: -webkit-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);  // Safari 5.1-6, Chrome 10+
+  background-image: -o-linear-gradient(top, $start-color $start-percent, $end-color $end-percent);  // Opera 12
+  background-image: linear-gradient(to bottom, $start-color $start-percent, $end-color $end-percent); // Standard, IE10, Firefox 16+, Opera 12.10+, Safari 7+, Chrome 26+
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType=0); // IE9 and down
+}
+
+@mixin gradient-directional($deg: 45deg, $start-color: #555, $start-percent: 0%, $end-color: #333,  $end-percent: 100%) {
+  background: $start-color; /* Old browsers */
+  background: -moz-linear-gradient($deg, $start-color $start-percent, $end-color $end-percent); /* FF3.6-15 */
+  background: -webkit-linear-gradient($deg, $start-color $start-percent, $end-color $end-percent); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient($deg, $start-color $start-percent, $end-color $end-percent); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($start-color)}', endColorstr='#{ie-hex-str($end-color)}', GradientType==1 ); /* IE6-9 fallback on horizontal gradient */
+  background-repeat: repeat-x;
+
+}
+
+@mixin radial-gradient($from, $to, $single: $to) {
+
+background-color: $single; // Old browsers
+background: -moz-radial-gradient(center, ellipse cover,  $from 0%, $to 100%);
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,$from), color-stop(100%,$to));
+background: -webkit-radial-gradient(center, ellipse cover,  $from 0%,$to 100%);
+background: -o-radial-gradient(center, ellipse cover,  $from 0%,$to 100%);
+background: -ms-radial-gradient(center, ellipse cover,  $from 0%,$to 100%);
+background: radial-gradient(ellipse at center,  $from 0%,$to 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$from', endColorstr='$to',GradientType=1 );
+}
+
+
+///MEdia Queries
+///
+
+@mixin visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}

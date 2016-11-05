@@ -1,0 +1,46 @@
+/**
+ * Basic typography style for copy text
+ */
+body {
+  color: $text-color;
+  font: normal 125% / 1.4 $text-font-stack;
+  // font: normal 20px $text-font-stack;
+
+}
+
+span, p, div {
+  line-height: 100%;
+}
+
+input, textarea, select {
+  font-family: inherit;
+}
+
+h1, h2, h3{
+  font-family: $header-font;
+  line-height: 100%;
+  font-weight: normal;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+h1 {
+   font-size: 80px;
+   line-height: 100%;
+}
+
+h2 {
+   font-size: 70px;
+
+}
+.header-big-title {
+  font-size: 83px;
+}
+p.subtitle {
+  .inverted & {
+    color: $white;
+  }
+    font-size: 20px;
+    text-align: center;
+    color: $dark-black;
+}

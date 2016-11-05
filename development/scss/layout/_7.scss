@@ -1,0 +1,56 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the ECRAN 7 - get-audit- of the site/application.
+// -----------------------------------------------------------------------------
+//
+.get-audit {
+  padding: 50px 0;
+  background-color:  #070707;
+  // &:before {
+  //     content: "";
+  //     left: 0;
+  //     top: 0px;
+  //     position: absolute;
+  //     width: 100%;
+  //     height: 100%;
+  //     background: url(/img/s7-preview.png) 50% 0 no-repeat;
+  //
+  // }
+
+
+  h2, p.subtitle {
+    text-align: left;
+  }
+  p.subtitle {
+      margin-bottom: 0;
+  }
+  .site-form--audit {
+      margin-top: 44px;
+  }
+  .audit-bg {
+    position: absolute;
+    bottom: 0;
+    right: -185px;
+  }
+
+  .btn--action-submit {
+      margin-top: 45px;
+  }
+
+  .container.container--absolute {
+    position: absolute;
+    top: 15px;
+    bottom: 0;
+    right: 0;
+    left: 25px;
+    height: 100%;
+    width: 100%;
+  }
+
+  .container.container--relative {
+      z-index: 1;
+  }
+
+
+
+
+}

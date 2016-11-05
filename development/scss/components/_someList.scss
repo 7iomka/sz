@@ -1,0 +1,30 @@
+.some_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 35px 0;
+    @include media('<960px') {
+      justify-content: space-around;
+    };
+    &__item {
+      @include media('<960px') {
+        flex-basis: 50%;
+        max-width: 50%;
+      };
+      @include media('<=480px') {
+        flex-basis: 100%;
+        max-width: 100%;
+      };
+      &__desc {
+        color: $white;
+        text-align: center;
+        margin: 25px 0;
+        font-weight: bold;
+      }
+
+      &__img {
+        height: 220px;
+        text-align: center;
+      }
+    }
+}

@@ -1,0 +1,13 @@
+/** modification preview of remodal for gallery-items **/
+.remodal--gallery {
+  max-width: 1080px;
+  @include media('<tablet') {
+    max-width: 100%;
+  };
+  // 
+  // .remodal--gallery__scene-wrapper {
+  //     margin-top: -28px;
+  //     margin-left: -35px;
+  // }
+
+}

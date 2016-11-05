@@ -1,0 +1,190 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site/application.
+// -----------------------------------------------------------------------------
+footer.site-footer {
+  background: image('footer-bg.jpg') 50% 0 no-repeat;
+  background-size: cover;
+  padding: 25px 0;
+  position: relative;
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(56, 54, 54, 0.34);
+}
+
+  // &.site-footer--map-expanded {
+  //   height: 400px;
+  // }
+
+  .footer-contacts {
+      color: $white;
+      text-shadow: 0px 3px 7px rgba(0, 0, 0, 0.35);
+
+      .adress-line {
+        font-size: 26px;
+        font-weight: 700;
+      }
+
+      .footer-contacts__line {
+          margin-bottom: 23px;
+          line-height: 100%;
+      }
+
+      .footer-contacts__title {
+          font-size: 30px;
+          font-weight: 700;
+          margin-bottom: 21px;
+      }
+
+      .footer-contacts__phones-list {
+          display: flex;
+      }
+
+      .footer-contacts__phones-title {
+          margin-right: 10px;
+      }
+      .footer-contacts__phone,
+      .footer-contacts__phone * {
+        color: $white;
+      }
+
+
+  }
+
+/** MAP **/
+  #site-map {
+    width: auto;
+    height: 400px
+  }
+  .footer-map-preview {
+    position: relative;
+        img {
+           max-width: 100%;
+        }
+  }
+
+  .footer-map-preview__btn {
+    width: 240px;
+    padding: 13px 16px;
+    height: 50px;
+    line-height: 50px;
+    margin: auto;
+
+    &,
+    .footer-map-preview__btn__text {
+      transition: 0.5s ease all;
+      position: absolute;
+      bottom: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+    }
+
+  }
+
+  .footer-map-preview__btn__text-default {
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+  }
+  .footer-map-preview__btn__text-expanded {
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+&.site-footer--map-expanded .footer-map-preview__btn__text {
+  &.footer-map-preview__btn__text-default {
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+  }
+  &.footer-map-preview__btn__text-expanded {
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+
+  .footer-map-preloader-overlay {
+    background: rgba(39, 42, 49, 0.91);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 2;
+  }
+
+  .footer-map-fullwidth-container {
+      position: absolute;
+      top: 0;
+      left:0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.5s ease all;
+  }
+
+  &.site-footer--map-expanded .footer-map-fullwidth-container {
+    visibility: visible;
+    opacity: 1;
+  }
+
+
+
+
+
+
+  #contacts-map {
+      height: 100%;
+      width: 100%;
+      top: 0;
+  }
+
+  #contacts-map, .pin:before, .shadow {
+      position: absolute;
+  }
+
+  @include media("<tablet") {
+    .footer-contacts {
+    text-align: center;
+    }
+
+    .footer-contacts .footer-contacts__phones-list {
+        display: block;
+    }
+
+    .footer-map-preview {
+        text-align: center;
+    }
+
+    &.site-footer--map-expanded .footer-map-preview {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    &.site-footer--map-expanded .footer-map-preview__btn {
+      position: absolute;
+      bottom: 0;
+      top: auto;
+    }
+
+    .footer-map-fullwidth,
+    .footer-map-fullwidth__map,
+    #site-map {
+        height: 100%;
+     }
+  };
+
+}

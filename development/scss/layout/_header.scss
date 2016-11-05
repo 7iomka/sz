@@ -1,0 +1,473 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+// $header-test-bg: #263e4f;
+
+
+
+header.site-header {
+  overflow: hidden;
+  padding: 95px 0 88px;
+  position: relative;
+
+  &:before {
+    content: "";
+    left: 0;
+    top: 0px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #141414;
+    background: -webkit-radial-gradient(circle closest-side at 50%, #202020 0%, #141414 100%);
+    background: -moz-radial-gradient(circle closest-side at 50%, #202020 0%, #141414 100%);
+    background: -o-radial-gradient(circle closest-side at 50%, #202020 0%, #141414 100%);
+    background: -ms-radial-gradient(circle closest-side at 50%, #202020 0%, #141414 100%);
+    background: radial-gradient(circle closest-side at 50%, #202020 0%, #141414 100%);
+    // transform: scale(1.86);
+    background: url(/img/header-preview.png) 50% 0 no-repeat;
+}
+
+.video-fallback {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+
+    img {
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        visibility: visible;
+        opacity: 1;
+        width: auto;
+    }
+}
+
+
+
+
+  .logo {
+
+
+
+      .logo__icon {
+        display: inline-block;
+        width: 48px;
+        height: 51px;
+        vertical-align: middle;
+        background: image('logo__icon.png') 0 0 no-repeat;
+      }
+
+      &.logo--small .logo__icon {
+          margin-right: 10px;
+          height: 48px;
+          background-size: contain;
+      }
+
+      .logo__title {
+          font-size: 53px;
+          font-family: 'Bebas_Neue',sans-serif;
+          line-height: 100%;
+      }
+  }
+
+// header parallax styles
+  .header-parallax-container {
+    position: relative;
+    margin-top: 42px;
+  }
+
+  .header-parallax {
+    position: absolute;
+    top: -15px;
+    right: -99px;
+  }
+
+  .macbook-layer {
+      position: relative;
+  }
+  .phone-layer {
+    position: absolute;
+    top: 156px;
+    left: 110px;
+  }
+
+  .particles-layer {
+    position: absolute;
+    top: -138px;
+    right: 0;
+    left: 146px;
+  }
+
+
+
+  /*hide logo on screen <960px */
+  @include media("<960px") {
+
+    .logo.logo--large {
+      display:none;
+    }
+
+    /*styles for logo in fixed mobile menu*/
+
+    .logo.logo--small {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1001;
+      bottom: 0;
+      margin: 7px 15px;
+          // z-index: -1;
+    }
+
+
+  }
+
+
+
+
+  .header-adress {
+    font-size: 16px;
+    display: inline-block;
+    padding-left: 20px;
+    vertical-align: middle;
+    text-align: left;
+    overflow: hidden;
+
+      span {
+        display: block;
+      }
+  }
+  video {
+    min-height: 100% !important;
+
+  }
+  .header-top-overlay * {
+    @include media("<tablet") {
+      display: block;
+      text-align: center;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  .header-buttons,
+  .title-container {
+    overflow: hidden;
+  }
+
+
+
+  & .header-contacts{
+    text-align: right;
+    @include media(">=phone", "<desktop") {
+      margin-right: 10px;
+    }
+    @include media('>=phone', '<=tablet') {
+      text-align: center;
+      margin-right: 0;
+    }
+
+    @include media('>=phone', '<=tablet') {
+      & * {
+        // margin-bottom: 10px;
+        margin-top: 5px;
+      }
+    }
+
+    & .phones {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+
+      @include media(">=phone", "<tablet") {
+        justify-content: center;
+      }
+
+      @include media('>=phone', '<=tablet') {
+        justify-content: center;
+      }
+
+      & li {
+        @include media('>=phone', '<=tablet') {
+          margin-bottom: 10px;
+          margin-top: 5px;
+        }
+      }
+    }
+    & li{
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 0;
+      display: flex;
+    }
+    & .phone{
+      font-size: 25px;
+      font-weight: 700;
+      &:hover{
+        color:  #ffefb5;
+        text-decoration: underline;
+      }
+    }
+  }
+
+}
+
+
+.small-text{
+  @extend %small-text;
+  margin-bottom: 0;
+}
+
+
+
+/** headers-separator **/
+.headers-separator {
+  width: 440px;
+  max-width: 100%;
+  margin: 10px auto 15px;
+  height: 4px;
+  background: $yellow;
+
+}
+/** header-subtitle **/
+.title-area .site-subtitle {
+  margin-bottom: 48px;
+  line-height: 100%;
+  span {
+    display: inline;
+  }
+}
+
+
+
+/*
+** Header label svg
+ */
+.header-label {
+    width: 178px;
+    margin: auto auto 48px;
+    cursor: pointer;
+    cursor: image('help.png'), help;
+
+    text {
+      transition: 0.5s ease fill;
+    }
+    &:hover text {
+      fill: $yellow;
+    }
+    @include media("<desktop") {
+          margin: 30px auto;
+    }
+
+    .cls-1 {
+        font-size: 25px;
+    }
+    .cls-1,
+    .cls-2,
+    .cls-3,
+    .cls-4 {
+        fill: #fff;
+    }
+    .cls-1,
+    .cls-3 {
+        font-family: Proxima_Nova;
+    }
+    .cls-2 {
+        font-size: 21px;
+    }
+    .cls-3 {
+        font-size: 19px;
+        letter-spacing: 1px;
+    }
+    .cls-3 {
+        font-weight: 700;
+    }
+    .cls-4 {
+        font-size: 134px;
+        font-family: Bebas_Neue;
+        letter-spacing: -3px;
+    }
+    .cls-5,
+    .cls-6 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+    }
+    .cls-6 {
+        stroke-width: 3px;
+    }
+
+    // background: image('header__label.png') 0 50% no-repeat;
+    // position: relative;
+    //
+    // span {
+    //   display: block;
+    // }
+    //
+    //
+    // &__top, &__bottom {
+    //   font-family: Proxima_Nova, sans-serif;
+    //   color: $white;
+    //
+    //   line-height: 29px;
+    //   text-align: left;
+    // }
+    //
+    // &__top {
+    //   font-size: 21.48px;
+    //   position: relative;
+    //   top: -25px;
+    //   text-align: center;
+    //   width: 178px;
+    // }
+    //
+    // &__bottom {
+    //   font-size: 25.06px;
+    // }
+    //
+    // &__small, &__big {
+    //   color: $white;
+    //   line-height: 29px;
+    // }
+    //
+    // &__small {
+    //   font-size: 19.69px;
+    //   font-weight: 700;
+    // }
+    //
+    // &__big {
+    //   font-family: 'Bebas_Neue', sans-serif;
+    //   font-size: 134.26px;
+    // }
+
+}
+
+
+.title-area {
+  max-width: 375px;
+
+  .inline {
+      display: inline;
+  }
+
+  @include media(">620px", "<desktop") {
+    font-size: 70px;
+    font-size: 7vw;
+  }
+  @include media("<tablet") {
+    margin-bottom: 10px;
+  }
+  @include media("<=620px") {
+    font-size: 50px;
+  }
+  span {
+    display: block;
+  }
+}
+.site-title {
+  position: relative;
+  // margin: 0.67em 0 0;
+  margin: 0.5375em 0 0.36em;
+  @include media('>=320px', '<=480px') {
+    font-size: 45px;
+  }
+  @include media('>=320px', '<=375px') {
+    font-size: 30px;
+  }
+}
+@include media(">=phone", "<desktop") {
+  .site-title,
+  .header-big-title {
+    font-size: inherit;
+      margin: 30px 0;
+
+  }
+}
+
+
+.header-big-title {
+    @extend %red-gradient;
+    width: 800px;
+    max-width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    transform: perspective(800px);
+    @include media('>=320px', '<=480px') {
+        font-size: 30px;
+    }
+  }
+
+  .continue-title {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 91px;
+    @include media(">=phone", "<desktop") {
+      line-height: normal;
+      margin: 25px 0;
+    }
+  }
+
+
+/*test*/
+
+ @include media('<tablet') {
+   .top-pushed {
+       margin: 0;
+       width: 50%;
+       text-align: right;
+       float: right;
+   }
+
+   .top-logo {
+      //  margin-bottom: 25px;
+      margin-top: 15px;
+       min-width: 210px;
+       margin-left: auto;
+        margin-right: auto;
+        display: block;
+        text-align: center;
+   }
+
+   .top-logo .logo {
+       margin: 0 auto;
+   }
+
+   .top-pulled {
+       width: auto;
+       margin: 0 auto;
+       width: 100%;
+   }
+
+   .top-pulled .header-contacts {
+       text-align: center;
+   }
+
+   header .header-contacts .phones,.socials {
+       justify-content: center;
+   }
+ };
+
+ @include media('<=576px') {
+   .top-logo {
+        margin-left: 0;
+    }
+
+    .top-pushed,.top-pulled {
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+
+
+    .top-pushed {
+        float: none;
+    }
+ };

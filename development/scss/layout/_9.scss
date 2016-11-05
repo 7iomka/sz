@@ -1,0 +1,75 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the ECRAN 9 of the site/application.
+// -----------------------------------------------------------------------------
+//
+
+.portfolio-gallery {
+
+    background-color: #141414;
+    background: radial-gradient(circle closest-side at 50%, #202020 0%, #141414 100%);
+    padding: 60px 15px;
+
+    .gallery__container {
+      max-width: 1170px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+        margin: 90px auto 0;
+    }
+
+    .gallery__item {
+      max-width: 30%;
+      margin-bottom: 34px;
+      text-align: center;
+      margin: 0 15px 34px;
+
+      @include media("<960px") {
+
+          min-width: 320px;
+          text-align: center;
+
+      };
+
+        @include media("<tablet") {
+
+          max-width: 42%;
+          min-width: auto;
+
+       };
+
+        @include media("<480px") {
+
+          max-width: 100%;
+
+        };
+
+    }
+
+    .gallery__item-img {
+        max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .gallery__item-title {
+      color: #7a7a7a;
+      font-size: 13px;
+      margin: 23px 0;
+      display: block;
+      text-align: center;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+
+    .gallery__item-img-wrapper {
+      text-decoration: none;
+      &:hover span {
+        color: white;
+      }
+    }
+
+
+
+}
