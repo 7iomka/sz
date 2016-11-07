@@ -47,10 +47,28 @@
 
     }
 
+    .gallery__item-img-wrapper {
+      text-decoration: none;
+      transition: 0.5s ease all;
+      &:hover {
+
+        span {
+         color: white;
+       }
+       .gallery__item-img {
+         box-shadow: 0 0 0 5px #ac9455, 0 15px 30px #65550c;
+       }
+
+      }
+
+    }
+
     .gallery__item-img {
         max-width: 100%;
-      border-radius: 8px;
+       border-radius: 8px;
+       transition: 0.5s ease all;
     }
+
 
     .gallery__item-title {
       color: #7a7a7a;
@@ -60,15 +78,9 @@
       text-align: center;
       letter-spacing: 0.1em;
       text-transform: uppercase;
+      transition: 0.8s ease all;
     }
 
-
-    .gallery__item-img-wrapper {
-      text-decoration: none;
-      &:hover span {
-        color: white;
-      }
-    }
 
 
 

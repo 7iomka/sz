@@ -211,6 +211,7 @@
         </div>
       </div>
     </section>
+
     <section class="portfolio s5 inverted" id="portfolio">
       <div class="project project--1">
         <img src="/img/portfolio/bg1.jpg" alt="" class="project__bg">
@@ -615,164 +616,152 @@
             </div>
           </div>
     </section>
-
-    <footer class="site-footer s10">
+    <section class="prices s10">
       <div class="container">
         <div class="row">
-          <div class="col col--6-of-12 col--am">
-            <div class="footer-contacts" id="our-contacts">
-              <div class="footer-contacts__title">Офис и производство:</div>
-              <div class="footer-contacts__data">
-                <div class="footer-contacts__line"><strong>г. Москва, Дмитровское шоссе, д.11</strong></div>
-                <div class="footer-contacts__line">
-                  <div class="footer-contacts__phones-list">
-                    <div class="footer-contacts__phones-title">
-                      <strong>Телефон: </strong>
-                    </div>
-                    <div class="footer-contacts__phones-content">
-                      <div class="footer-contacts__phone">+7 (495) 940-66-59</div>
-                      <div class="footer-contacts__phone">+7 (903) 7777-960</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="footer-contacts__line"><strong>E-mail: </strong>info@gform.ru</div>
-                <div class="footer-contacts__line">
-                  <div><strong>Режим работы</strong></div>
-                  <div>
-                    <strong>офиса / пункта выдачи:</strong>
-                  </div>
-                  <br/>
-                  <div>ежедневно с 10:00 до 19:00</div>
-                </div>
-
-
+          <div class="prices__list">
+            <div class="prices__list-column prices__list-column--services">
+              <div class="prices__list-row prices__list-header">
+                <h2>Услуги<br />и цены</h2>
+              </div>
+              <div class="prices__list-row">Маркетинговое исследование рынка и анализ конкурентов</div>
+              <div class="prices__list-row">Проработка маркетинговой<br />стратегии и разработка УТП</div>
+              <div class="prices__list-row">Уникальный продающий<br />дизайн Landing Page</div>
+              <div class="prices__list-row">Мобильная версия сайта</div>
+              <div class="prices__list-row">А/Б тестирование элементов сайта</div>
+              <div class="prices__list-row">Настройка сервиса моментального обратного звонка Call Back</div>
+              <div class="prices__list-row">Аналитика рекламных кампаний</div>
+              <div class="prices__list-row">Бесплатная настройка<br />Яндекс Директ</div>
+              <div class="prices__list-row">Бесплатная настройка<br />Google AdWords</div>
+              <div class="prices__list-row">Настройка CRM системы для подробной аналитики воронки продаж</div>
+              <div class="prices__list-row">Мультилендинг</div>
+              <div class="prices__list-row prices__list-footer"></div>
+            </div>
+            <div class="prices__list-column prices__list-column--plan">
+              <div class="prices__list-row prices__list-header">
+                <div class="prices__list-plan-title">Начальный</div>
+                <img src="/img/starter-plan.png" alt="" class="prices__list-plan-img">
+              </div>
+              <div class="prices__list-row ok"></div>
+              <div class="prices__list-row ok"></div>
+              <div class="prices__list-row ok"></div>
+              <div class="prices__list-row"></div>
+              <div class="prices__list-row"></div>
+              <div class="prices__list-row"></div>
+              <div class="prices__list-row"></div>
+              <div class="prices__list-row"></div>
+              <div class="prices__list-row"></div>
+              <div class="prices__list-row"></div>
+              <div class="prices__list-row"></div>
+              <div class="prices__list-row prices__list-footer">
+                <div class="prices__list-sum">90000 руб</div>
+                <a href="#" class="btn btn--brown btn--small pricest__list-btn">Заказать</a>
+              </div>
+            </div>
+            <div class="prices__list-column prices__list-column--inverted prices__list-column--plan">
+              <div class="prices__list-row prices__list-header">
+                <div class="prices__list-plan-title">Бизнес</div>
+                <img src="/img/business-plan.png" alt="" class="prices__list-plan-img">
+              </div>
+              <div class="prices__list-row ok"></div>
+              <div class="prices__list-row ok"></div>
+              <div class="prices__list-row ok"></div>
+              <div class="prices__list-row ok"></div>
+              <div class="prices__list-row ok-text">2 месяца</div>
+              <div class="prices__list-row ok"></div>
+              <div class="prices__list-row ok"></div>
+              <div class="prices__list-row ok"></div>
+              <div class="prices__list-row"></div>
+              <div class="prices__list-row"></div>
+              <div class="prices__list-row"></div>
+              <div class="prices__list-row prices__list-footer">
+                <div class="prices__list-sum">135 000 руб</div>
+                <a href="#" class="btn btn--brown btn--small pricest__list-btn">Заказать</a>
+              </div>
+            </div>
+            <div class="prices__list-column prices__list-column--plan prices__list-column--plan-last">
+              <div class="prices__list-row prices__list-header">
+                <div class="prices__list-plan-title premium">Премиум</div>
+                <img src="/img/premium-plan.png" alt="" class="prices__list-plan-img">
+              </div>
+              <div class="prices__list-row ok"></div>
+              <div class="prices__list-row ok"></div>
+              <div class="prices__list-row ok"></div>
+              <div class="prices__list-row ok"></div>
+              <div class="prices__list-row ok-text">4 месяца</div>
+              <div class="prices__list-row ok"></div>
+              <div class="prices__list-row ok"></div>
+              <div class="prices__list-row ok"></div>
+              <div class="prices__list-row ok"></div>
+              <div class="prices__list-row ok"></div>
+              <div class="prices__list-row ok"></div>
+              <div class="prices__list-row prices__list-footer">
+                <div class="prices__list-sum">150 000 руб</div>
+                <a href="#" class="btn btn--brown btn--small pricest__list-btn">Заказать</a>
               </div>
             </div>
           </div>
-          <div class="col col--6-of-12 col--am">
-            <div class="footer-map-preview">
-              <img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="/img/map-preview.jpg" />
-              <button class="btn btn--yellow footer-map-preview__btn">
-                <span class="footer-map-preview__btn__text footer-map-preview__btn__text-default">Развернуть карту</span>
-                <span class="footer-map-preview__btn__text footer-map-preview__btn__text-expanded">Свернуть карту</span>
-              </button>
-            </div>
-          </div>
         </div>
       </div>
-      <div class="footer-map-fullwidth-container">
-        <div class="footer-map-fullwidth">
-          <div class="footer-map-preloader-overlay hidden">
-            <div class="footer-map-preloader">
-              <div class="css_spinner wf">
-                <span class="side s_left"> <span class="fill"></span> </span>
-                <span class="side s_right"> <span class="fill"></span> </span>
+    </section>
+
+    <section class="reviews s11">
+      <div class="swiper-container">
+          <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <a href="/img/reviews/big/i1.jpg" class="review">
+                  <img class="review__img" src="/img/reviews/i1.png" alt="">
+                </a>
               </div>
-            </div>
+              <div class="swiper-slide">
+                <a href="/img/reviews/big/i2.jpg" class="review">
+                  <img class="review__img" src="/img/reviews/i2.png" alt="">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="/img/reviews/big/i3.jpg" class="review">
+                  <img class="review__img" src="/img/reviews/i3.png" alt="">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="/img/reviews/big/i4.jpg" class="review">
+                  <img class="review__img" src="/img/reviews/i4.png" alt="">
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="/img/reviews/big/i5.jpg" class="review">
+                  <img class="review__img" src="/img/reviews/i5.png" alt="">
+                </a>
+              </div>
           </div>
-          <img class="footer-map-fullwidth__img--fallback hidden" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="/img/map-full.jpg" />
-
-          <div class="footer-map-fullwidth__map">
-              <div id="site-map"></div>
-          </div>
-        </div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
       </div>
-    </footer>
-    <section class="after-footer s11">
-     <div class="container">
-       <div class="row">
-         <div class="footer_list-wrapper" >
-            <ul class="footer__list">
-              <li><img src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="/img/cards.png" alig="left"></li>
-              <li><a href="#">Порядок оплаты</a></li>
-              <li><a target="_blank" href="/docs/Tekhnicheskie_uslovia_izgotovlenia_izdeliy_iz_stekla_IP_Ermolaev_V_N.pdf">Технические условия</a></li>
-              <li><a href="#">Гарантии</a></li>
-              <li><a target="_blank" href="/docs/dostavka.pdf">Доставка</a></li>
-              <li><a target="_blank" href="/docs/vozvrat.pdf">Возврат</a></li>
-              <li><a target="_blank" href="/docs/confidencial.pdf">Конфиденциальность</a></li>
-              <li><a target="_blank" href="/docs/Dogovor-Oferta_IP_Ermolaev_V_N.pdf">Договор оферты</a></li>
-            </ul>
-        </div>
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev">
+        <img src="/img/arrow-left.png" alt="" class="preview__prev">
       </div>
-    </div>
-    <div class="footer__visa-comments">
+      <div class="swiper-button-next">
+        <img src="/img/arrow-right.png" alt="" class="preview__next">
+      </div>
       <div class="container">
         <div class="row">
-          При оплате банковской картой ввод реквизитов карт происходит в системе электронныхъ платежей ПАО АКБ «Авангард», который прошел сертификацию в
-          платежных системах Visa и MasterCard. Представленные Вами данные полностью защищены и никто, включая наш интернет-магазин, не сможет их получить.
-        </div>
-      </div>
-   </div>
-    <div class="footer__copyright">
-      <div class="container">
-        <div class="row">
-          Индивидуальный предприниматель ЕРМОЛАЕВ ВЛАДИСЛАВ НИКОЛАЕВИЧ ОГРНИП 314583813200020 от 12.05.2014 ИНН 583805739186.
-               <br />Служба поддержки клиентов +74959406659, help@gform.ru
-        </div>
-      </div>
-   </div>
+          <h2 class="beforeAnim reverse"><span>Отзывы о нашей работе</span></h2>
+          <!-- Swiper -->
 
-  </section>
+
+        </div>
+      </div>
+    </section>
+
+
 <div class="remodal-bg">
-   <!-- WHAT 24 (HELP POPUP IN HEADER-LABEL)-->
-
-   <div class="remodal" data-remodal-id="what-24" role="dialog">
-     <div data-remodal-action="close" class="remodal-close" aria-label="Close">
-           <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve"> <g> <path class="close_path1" d="M22.5,6h-21C1.2,6,1,5.8,1,5.5C1,5.2,1.2,5,1.5,5h21C22.8,5,23,5.2,23,5.5C23,5.8,22.8,6,22.5,6z" data-svg-origin="12 5.5" transform="matrix(0.7071,0.7071,-0.7071,0.7071,7.4038059222874395,0.12563132923541787)" style="z-index: 0;"></path> <path class="close_path2" d="M22.5,13h-21C1.2,13,1,12.8,1,12.5C1,12.2,1.2,12,1.5,12h21c0.3,0,0.5,0.2,0.5,0.5C23,12.8,22.8,13,22.5,13z" data-svg-origin="1 12" transform="matrix(0,0,0,1,12,0)" style="z-index: 0;"></path> <path class="close_path3" d="M22.5,20h-21C1.2,20,1,19.8,1,19.5C1,19.2,1.2,19,1.5,19h21c0.3,0,0.5,0.2,0.5,0.5C23,19.8,22.8,20,22.5,20z" data-svg-origin="12 19.5" transform="matrix(0.7071,-0.7071,0.7071,0.7071,-10.27386360737625,7.196699141100892)" style="z-index: 0;"></path></g></svg>
-     </div>
-     <div>
-       <h2 class="remodal__title">Что мы делаем за 24 часа</h2>
-       <div class="remodal__desc">
-         <p>Мы делаем то-то то-то...Тестовый текст</p>
-       </div>
-     </div>
-   </div>
-
-  <?php
-  // SERVICES MODALLS WILL RENDER DYNAMIC
-  require_once 'inc/services-list.php';
-  // GLASS TYPES (glass && mirrors)
-  require_once 'inc/glass_types-modals.php';
-  // ACTION MODALS (CALL NOW, MEASURE NOW, CONSULT NOW)
-  require_once 'inc/actions-modals.php';
-  // HOW WE WORKS MODALS (STEPS 1 - 5)
-  require_once 'inc/how-we-works-modals.php';
-  ?>
-
-
-  <!-- GALLERY MODAL WILL RENDER WITH JS -->
-  <div class="remodal remodal--gallery" data-remodal-id="gallery__item" data-remodal-options="hashTracking: false" role="dialog">
-    <div data-remodal-action="close" class="remodal-close" aria-label="Close">
-          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve"> <g> <path class="close_path1" d="M22.5,6h-21C1.2,6,1,5.8,1,5.5C1,5.2,1.2,5,1.5,5h21C22.8,5,23,5.2,23,5.5C23,5.8,22.8,6,22.5,6z" data-svg-origin="12 5.5" transform="matrix(0.7071,0.7071,-0.7071,0.7071,7.4038059222874395,0.12563132923541787)" style="z-index: 0;"></path> <path class="close_path2" d="M22.5,13h-21C1.2,13,1,12.8,1,12.5C1,12.2,1.2,12,1.5,12h21c0.3,0,0.5,0.2,0.5,0.5C23,12.8,22.8,13,22.5,13z" data-svg-origin="1 12" transform="matrix(0,0,0,1,12,0)" style="z-index: 0;"></path> <path class="close_path3" d="M22.5,20h-21C1.2,20,1,19.8,1,19.5C1,19.2,1.2,19,1.5,19h21c0.3,0,0.5,0.2,0.5,0.5C23,19.8,22.8,20,22.5,20z" data-svg-origin="12 19.5" transform="matrix(0.7071,-0.7071,0.7071,0.7071,-10.27386360737625,7.196699141100892)" style="z-index: 0;"></path> </g> </svg>
-    </div>
-    <div class="remodal--gallery--wrapper">
-      <div class="remodal--gallery__scene-wrapper">
-        <div class="remodal--gallery__scene">
-          <div class="remodal--gallery__scene__image-wrapper">
-            <img class="remodal--gallery__scene__image" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="">
-          </div>
-          <div class="remodal--gallery__scene__material-wrapper">
-            <img class="remodal--gallery__scene__material" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="">
-          </div>
-        </div>
-      </div>
-      <div class="remodal--gallery__description">
-        <h2 class="remodal__title"></h2>
-        <div class="remodal__desc"></div>
-      </div>
-    </div>
-
-  </div>
-
-
 
 </div> <!-- this is end of overlay remodal container-->
 
   <script type="text/javascript">
   var go_animations = false;
-window.galleryIsLoaded = false;
-window.scrollMagicController = false;
-window.headerVideo = false;
+
 
 
   /**
@@ -871,93 +860,12 @@ window.headerVideo = false;
 
 
 
-   function loadFallbackHeaderImage(callback) {
-     var callback = typeof callback !== 'function' ? function(){} : callback;
-     // CROSS-BROWSER TRANSITION END EVENT LISTENERS
-     var transEndEventNames = {
-       'WebkitTransition' : 'webkitTransitionEnd',
-       'MozTransition'    : 'transitionend',
-       'OTransition'      : 'oTransitionEnd',
-       'msTransition'     : 'MSTransitionEnd',
-       'transition'       : 'transitionend'
-     },
-     transEndEventName = transEndEventNames[ Modernizr.prefixed('transition') ],
-     fallBackImg = document.getElementById('header-video-snapshot');
-
-     if(fallBackImg) {
-       var snapshot = new Image();
-        snapshot.src = '/video/video.jpg';
-          fallBackImg.setAttribute('src',fallBackImg.getAttribute('data-src'));
-        snapshot.onload = function () {
-
-              function getReadyHeaderVideo(){
-                if(window.headerVideo) {
-                  console.log('video is ready');
-                }
-                else {
-                  setTimeout(getReadyHeaderVideo,1000);
-                }
-              }
-              getReadyHeaderVideo();
-
-              function getReadyScrollMagicController() {
-                 if(window.scrollMagicController && window.headerVideo) {
-
-                   window.scrollMagicController.enabled(true);
-
-                   setTimeout(function () {
-
-                     var siteWrapper = document.querySelector('.site-wrapper');
-                     var sitePreloaderWrapper = document.querySelector('#site-preloader-wrapper');
-                     var headerVideoPlayStarted = false;
-                     addClass(siteWrapper, 'loaded');
-                    sitePreloaderWrapper.addEventListener(transEndEventName, function (event) {
-
-
-                         if(!headerVideoPlayStarted) {
-                            console.log(event.target.id && event.target.id, event.elapsedTime);
-                           if(event.target.id && event.target.id === 'oneOfSite-preloader__section') {
-                             console.log(event.elapsedTime);
-                             headerVideoPlayStarted = true;
-                             removeClass(document.getElementsByTagName("html")[0], 'remodal-is-locked');
-                             window.headerVideo.play();
-                           }
-
-                         }
-
-
-                     }, false);
-
-                     callback();
-
-                   }, 1000);
-
-                 }
-                 else {
-                   setTimeout(function () {
-                     getReadyScrollMagicController();
-                       getReadyHeaderVideo();
-                   }, 100);
-                 }
-                 console.log(window.scrollMagicController && window.scrollMagicController.enabled());
-              }
-              getReadyScrollMagicController();
-
-
-
-        };
-          addClass(fallBackImg, 'fullLoaded');
-
-    }
-  }
 
    window.onload = function(){
 
-     load_script('/js/modernizr.min.js', loadFallbackHeaderImage);
+     load_script('/js/modernizr.min.js');
 
      importScr('/js/all.package.min.js');
-
-
 
 
    }
