@@ -1,16 +1,84 @@
+$hamburger-color: #fef0cc;
+$hamburger-bgColor: #5e4608;
+
+.hamburger-text {
+    margin-left: -60px;
+    position: absolute;
+    color: wheat;
+    font-family: "Bebas_Neue", sans-serif;
+    font-size: 25px;
+    line-height: 60px;
+    display: inline-block;
+    cursor: pointer;
+}
 .hamburger {
-  padding: 15px 15px;
-  display: inline-block;
-  cursor: pointer;
-  border: 0;
-  margin: 0;
-  overflow: visible;
-}
-.hamburger:hover {
-  opacity: 0.7;
-}
-.hamburger svg {
-    width: 24px;
-    height: 24px;
-    fill: #fff;
+  position: relative;
+  display: block;
+  width: 60px;
+  height: 60px;
+  transition-duration: 0.5s;
+  background: $hamburger-bgColor;
+  float: right;
+  -webkit-tap-highlight-color: transparent;
+
+  &.active {
+    border-radius: 0 0 0 15px;
+  }
+
+
+
+  .icon {
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    position: absolute;
+    height: 4px;
+    width: 30px;
+    display: block;
+    top: 30px;
+    background-color: $hamburger-color;
+    border-radius: 4px;
+    left: 15px;
+    &:before {
+      -webkit-transition-duration: 0.5s;
+      transition-duration: 0.5s;
+      position: absolute;
+      width: 30px;
+      height: 4px;
+      background-color: $hamburger-color;
+      content: "";
+      top: -10px;
+      border-radius: 4px;
+    }
+    &:after {
+      -webkit-transition-duration: 0.5s;
+      transition-duration: 0.5s;
+      position: absolute;
+      width: 30px;
+      height: 4px;
+      background-color: $hamburger-color;
+      content: "";
+      top: 10px;
+      border-radius: 4px;
+    }
+  }
+  &.active {
+    // background: #49270f;
+  }
+  &.active .icon {
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    background: transparent;
+    &:before {
+      -webkit-transform: rotateZ(45deg) scaleX(1.25) translate(6.5px, 6.5px);
+      transform: rotateZ(45deg) scaleX(1.25) translate(6.5px, 6.5px);
+    }
+    &:after {
+      -webkit-transform: rotateZ(-45deg) scaleX(1.25) translate(6px, -6px);
+      transform: rotateZ(-45deg) scaleX(1.25) translate(6px, -6px);
+    }
+  }
+  &:hover {
+    // background: #fff;
+    cursor: pointer;
+  }
 }

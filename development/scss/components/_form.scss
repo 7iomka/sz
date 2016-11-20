@@ -110,6 +110,9 @@ $label-color: #6a6a6a;
   }
   .post-comment {
       font-size: 12px;
+      @include media("<tablet"){
+        font-size: 13px;
+      };
       display: block;
       margin-top: 15px;
       color: $label-color;
@@ -121,6 +124,7 @@ $label-color: #6a6a6a;
   .form-input-wrapper {
     display: inline-block;
     position: relative;
+    max-width: 100%;
     &:after {
       content: "";
       position: absolute;
@@ -152,4 +156,61 @@ $label-color: #6a6a6a;
   }
 
 
+}
+
+
+// new styles
+.site-form {
+  input {
+    &.notEmpty, &:focus {
+      background: #2e2e2e;
+      box-shadow: 0 0 0 1px rgba(172, 148, 85, 0.35) inset;
+    }
+  }
+  textarea {
+    &.notEmpty, &:focus {
+      background: #2e2e2e;
+      box-shadow: 0 0 0 1px rgba(172, 148, 85, 0.35) inset;
+    }
+  }
+  input, textarea {
+      // width: 360px;
+      max-width: 100%;
+    &.notEmpty {
+      background: #2e2e2e;
+      color: #fff;
+      box-shadow: 0 0 0 1px #000 inset;
+      &:focus {
+        background: #2e2e2e;
+        color: #fff;
+        box-shadow: 0 0 0 1px #000 inset;
+      }
+    }
+    &.valid:focus {
+      background: #2e2e2e;
+      color: #fff;
+      box-shadow: 0 0 0 1px #000 inset;
+    }
+  }
+  label {
+    font-family: Roboto,sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 28px;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    text-align: left;
+    color: #939393;
+      &.error {
+        color: #dc5151;
+        position: absolute;
+        font-size: 11px;
+        margin-top: 3px;
+        line-height: 24px;
+      }
+  }
+  .form-group {
+    margin-bottom: 28px;
+  }
 }

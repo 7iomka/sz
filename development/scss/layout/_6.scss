@@ -6,11 +6,19 @@
   padding-bottom: 0;
   h2 {
     margin-bottom: 100px;
+    @include media("<tablet") {
+       margin-bottom: 70px;
+    };
   }
 
 }
 .argument {
   padding: 90px 0;
+  @include media("<tablet") {
+    text-align: center;
+    padding: 45px 0;
+
+  };
     &.argument--first {
       padding: 0 0 40px 0;
     }
@@ -41,6 +49,10 @@
     .argument__desc {
       font-size: 15px;
       line-height: 17px;
+      @include media("<tablet"){
+        font-size: 18px;
+        line-height: normal;
+      };
       max-width: 360px;
       p, span {
         line-height: inherit;
@@ -49,6 +61,7 @@
 
     .argument__details {
       color: $black;
+      margin-bottom: 20px;
     }
 
     .argument__sep {
@@ -58,12 +71,34 @@
       margin: 20px 0;
     }
 
+    .argument__desc,.argument__sep {
+        @include media("<tablet") {
+          margin-left: auto;
+          margin-right: auto;
+          text-align: left;
+        };
+    }
+
+
     .argument__total {
       font-size: 17px;
       line-height: 20px;
       margin-bottom: 0;
+      @include media("<tablet"){
+        font-size: 18px;
+        line-height: normal;
+      };
+    }
+    .argument__img-wrapper {
+        @include media(">=tablet", "<960px") {
+          margin-right: 20px;
+        };
     }
     .argument__img {
       max-width: 100%;
     }
+
+
+
+
 }

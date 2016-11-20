@@ -4,7 +4,10 @@
 //
 .prices {
   background-color:  #f2f3f5;
-  padding: 80px 0;
+@include media(">=tablet"){
+    padding: 80px 0;
+};
+
 
   .prices__list {
     display: flex;
@@ -12,9 +15,15 @@
         color: #292929;
         font-size: 70px;
         line-height: 60px;
+        @include media("<=960px") {
+          br {
+            display: none;
+          }
+        };
         &:before {
           display: none;
         }
+
       }
 
 
@@ -108,6 +117,7 @@
       // header
       .prices__list-header {
         height: 196px;
+
         position: relative;
         padding: 26px;
 
@@ -158,9 +168,166 @@
 
       }
 
+.prices__list-mobile-ok {
+  display: none;
+}
+
+// go responsive
+
+@include media("<=960px") {
+
+  // prices listy make block
+  display: block;
+  text-align: center;
+
+  .prices__list-column {
+    // from first column-services list only header will be visible
+    &.prices__list-column--services .prices__list-row {
+      display: none;
+      &.prices__list-header {
+        display: block;
+        width: 100%;
+        box-shadow: none;
+        height: auto;
+        margin-bottom: 35px;
+      }
+    }
+
+    // from each column plan
+    &.prices__list-column--plan {
+      // hide empty rows
+      .prices__list-row.empty {
+        display: none;
+      }
+
+      // display mobile service description inside above to the icon
+      .prices__list-mobile-ok {
+        padding-left: 40px;
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 18px;
+        line-height: normal;
+      }
+      // default checkmark background
+      .prices__list-mobile-ok {
+        background: image('check-mark.png') 0 50% no-repeat;
+      }
+
+      // make margins similar to others columns + remove background
+      .prices__list-row.ok {
+        background: none;
+        height: auto;
+        padding: 20px 10px 20px 15px;
+        text-align: left;
+      }
+
+      .prices__list-row.ok-text {
+        font-size: 20px;
+        font-weight: normal;
+        text-align: left;
+        height: auto;
+        padding: 20px 10px 20px 15px;
+            span {
+              display: block;
+              color: #ac9455;
+              padding: 10px;
+              margin: 10px auto;
+              text-align: center;
+              border: 1px dashed #ac9455;
+              border-radius: 20px;
+            }
+      }
+
+      // if this column is inverted
+      &.prices__list-column--inverted {
+        // make margins similar to others columns + remove background
+        .prices__list-row.ok {
+          background: none;
+          height: auto;
+          padding: 20px 10px 20px 15px;
+          text-align: left;
+        }
+
+        // for ok text make other color
+        .prices__list-row.ok-text {
+          span {
+              background: #202020;
+          }
+        }
+        // maker inverted checkmarg background
+        .prices__list-mobile-ok {
+          background: image('check-mark--inverted.png') 0 50% no-repeat;
+        }
+      }
+
+    } // end column plan
+  }
+
+
+};
+
+// tablets
+@include media(">=tablet", "<=960px") {
+    .tablet-row {
+      margin: 0 5px;
+      background-color: #ffffff;
+      box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.07);
+  }
+
+  .prices__list-column.prices__list-column--plan.prices__list-column--inverted .tablet-row {
+      background-color: #1b1b1b;
+  }
+
+  .prices__list-column.prices__list-column--plan {
+      width: 33%;
+      display: inline-block;
+      margin-right: -0.25em;
+      vertical-align: top;
+       box-shadow: none;
+      background: none!important;
+  }
+
+};
+
+// mobiles
+@include media("<tablet") {
+  .prices__list-column.prices__list-column--plan {
+    display: block;
+    width: 500px;
+    margin: 20px auto;
+    max-width: 100%;
+
+    &.prices__list-column--plan-last {
+      margin-right: auto;
+    }
+    &.prices__list-column--inverted {
+      margin: 50px auto;
+    }
+    .prices__list-header .prices__list-plan-title {
+      font-size: 22px;
+    }
+    .prices__list-footer .pricest__list-btn {
+      width: 250px;
+    }
+
+    .prices__list-row.ok-text span {
+      max-width: 300px;
+    }
+    .prices__list-row.ok,
+    &.prices__list-column--inverted .prices__list-row.ok,
+    .prices__list-row.ok-text,
+     &.prices__list-column--inverted .prices__list-row.ok-text{
+      padding: 10px 10px 10px 15px;
+    }
+
+  }
+};
 
 
 
+
+
+// end responsive
 
 
 

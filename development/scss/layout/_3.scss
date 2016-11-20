@@ -24,6 +24,10 @@
     background: image('step-curve-line.png') 50% 68.5% no-repeat;
 background-color: $default-dark;
 z-index: -1;
+
+  @include media("<tablet") {
+  background-image: none;
+  };
 }
 
 /**
@@ -31,6 +35,9 @@ z-index: -1;
  */
 .grant-faq__steps {
     margin-top: 94px;
+    @include media("<tablet") {
+      margin-top: 35px;
+    };
     position: relative;
     z-index: 1;
 }
@@ -38,9 +45,22 @@ z-index: -1;
 
   .grant-faq__step {
     text-align: center;
-
+    &.grant-faq__step--2 {
+      @include media("<tablet") {
+        background: #000000;
+        padding: 20px;
+        box-shadow: 0 0 2px #ffd200 inset;
+        margin: 25px 0;
+      };
+    }
     .grant-faq__step-number {
       margin-bottom: 10px;
+      height: 45px;
+      overflow: hidden;
+      @include media("<tablet") {
+        height: auto;
+        overflow: visible;
+      };
     }
     .grant-faq__step-title {
       color: $white;
@@ -52,6 +72,10 @@ z-index: -1;
       color:  #777777;
       font-size: 15px;
       line-height: 17px;
+      @include media("<tablet"){
+        font-size: 18px;
+        line-height: normal;
+      };
     }
     .grant-faq__step-img-wrapper {
       margin-top: 25px;

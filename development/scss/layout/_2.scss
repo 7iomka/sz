@@ -61,6 +61,93 @@
       top: 15px;
   }
 
+  @media screen and (max-width: 830px) {
+      .share-event__title-wrappper {
+        max-width: 100%;
+        height: auto;
+        padding-bottom: 25px;
+      }
+      .p1 {
+        text-align: center;
+        left: 0;
+        right: 0;
+        top: -25px;
+        width: 320px;
+        height: auto;
+        font-size: 50px;
+        margin: auto;
+        position: relative;
+        display: block;
+      }
+      .p2 {
+        left: 0;
+        font-size: 100px;
+        text-align: center;
+        display: block;
+        top: 0;
+        margin: -25px auto 0;
+      }
+      .p3, .p4 {
+        left: 0;
+        top: 0;
+        position: relative;
+        width: 100%;
+        text-align: center;
+        margin: auto;
+        display: block;
+      }
+  }
+
+    @media screen and (max-width: 621px) {
+      .p2 {
+        font-size: 78px;
+      }
+      .p3 {
+        font-size: 35px;
+      }
+      .p4 {
+        font-size: 60px;
+      }
+
+    }
+
+    @media screen and (max-width: 480px) {
+      .p2 {
+        font-size: 57px;
+        font-size: 16vw;
+      }
+      .p4 {
+        font-size: 45px;
+        font-size: 14vw;
+      }
+
+    }
+    @media screen and (max-width: 375px) {
+      .share-event__title-wrappper {
+        padding-bottom: 15px;
+        padding-top: 15px;
+      }
+
+
+      .p1 {
+        top: 0;
+        background: none;
+        padding: 0;
+        width: 100%;
+      }
+
+      .p2 {
+          margin: 15px 0;
+      }
+
+      .p4 {
+        font-size: 45px;
+        font-size: 14vw;
+      }
+
+
+    }
+
   /*
 **************** grant list *****************
    */

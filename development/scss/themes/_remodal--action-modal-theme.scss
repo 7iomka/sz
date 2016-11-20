@@ -1,20 +1,16 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles for remodal with actions (order-now, consult and etc..)
 // -----------------------------------------------------------------------------
-
+.remodal-overlay {
+    background: rgba(20,18,25,0.96);
+}
 /** Skeleton styles for actions remodal **/
 .remodal--action {
   border-radius: 5px;
-  width: 440px;
-  max-width: 100%;
+  // width: 440px;
+  // max-width: 100%;
   padding: 25px 40px 40px;
 
-  @include media("<=480px") {
-    padding: 25px 20px 40px;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  };
 
 
 
@@ -33,6 +29,11 @@
   }
 .remodal__content-wrapper {
   margin: auto;
+  padding: 25px;
+  @include media("<=414px") {
+    padding: 0;
+  };
+  background: #282834;
 }
   .remodal__description {
     color: $yellow;
@@ -59,69 +60,7 @@
     position: relative;
  }
 
-  /** remodal--order **/
-  &.remodal--order .remodal--action__icon {
-      left: 6px;
-      background-image: image('modal-icons/order-now.png');
-  }
-  /** remodal--consult **/
-  &.remodal--consult .remodal--action__icon {
-      background-image: image('modal-icons/consult-now.png');
-      animation: dropShadow 3s ease infinite;
-  }
-  @keyframes dropShadow {
-    0% {
-      -webkit-filter: drop-shadow(0 0 0px rgba(245, 213, 0, 0.6));
-    }
-    50% {
-        -webkit-filter: drop-shadow(0 0 13px rgba(245, 213, 0, 0.6));
-    }
-  }
 
-  /** remodal--measure **/
-  &.remodal--measure .remodal--action__icon {
-      background-image: image('modal-icons/measure-now.png');
-      transform-origin: 50% 50%;
-    transform-style: preserve-3d;
-    animation: floating 5s -1s infinite;
-
-    &:before {
-      position: absolute;
-      content: "";
-      z-index: -1;
-      left: 0;
-      right: 0;
-      margin: auto;
-      bottom: 7px;
-      width: 100%;
-      height: 47%;
-      border-radius: 50%;
-      transform-origin: 0% 0%;
-      animation: scalling 5s -1s linear infinite;
-      transform-style: preserve-3d;
-    }
-  }
-
-  @keyframes floating {
-    0%, 100% {
-      -webkit-transform: translateY(-5%);
-              transform: translateY(-5%);
-    }
-    50% {
-      -webkit-transform: translateY(0);
-              transform: translateY(0);
-    }
-  }
-
-  @keyframes scalling {
-    0%, 100% {
-
-              transform: translateX(62px) translateY(100%) scaleZ(1);    box-shadow: -62px 0 25px rgba(128, 107, 10, 0.1);
-    }
-    50% {
-              transform: translateX(62px) translateY(100%) scaleZ(0.5);    box-shadow: -62px 0 25px rgba(128, 107, 10, 0.4);
-    }
-  }
 
   .remodal--action__title {
       display: block;
@@ -136,53 +75,12 @@
         transform: translateY(-100%);
         opacity: 0;
     }
+
+    .site-form__subheader {
+      font-size: 20px;
+    }
   }
-  /** form elements **/
 
-  form {
-
-
-
-    .form-group {
-      margin-bottom: 25px;
-    }
-
-    input, textarea {
-      color: $white;
-      width: 100%;
-      text-shadow: 1px 1px rgba(66, 66, 66, 0.56);
-
-
-      &.notEmpty,
-      &.notEmpty:focus,
-      &.valid:focus {
-
-          color: $white;
-      }
-    }
-
-    textarea {
-      height: auto;
-    }
-
-    label {
-      line-height: 100%;
-      margin-bottom: 10px;
-    }
-
-    .btn--action-submit {
-      width: 100%;
-      height: 60px;
-      margin-top: 20px;
-      font-size: 25px;
-
-      @include media("<=375px") {
-        font-size: 20px;
-        height: 50px;
-      };
-    }
-
-  }
 
   .btn--action-success-close {
     width: 100%;
@@ -191,37 +89,18 @@
     font-size: 25px;
     margin-bottom: 45px;
 
-    @include media("<=375px") {
-      font-size: 20px;
-      height: 50px;
-    };
-  }
 
-  .order-info__success-id {
-      font-family: Bebas_Neue,sans-serif;
-      font-weight: 400;
-      margin: 35px auto 35px;
-      padding: 15px 20px;
-      max-width: 100%;
-      overflow: hidden;
-      white-space: nowrap;
-      position: relative;
-      box-shadow: 0 0 0 5px $yellow inset;
-      font-size: 45px;
-      color: $yellow;
-      text-align: center;
-  }
-  .addToBookmark {
-    color: $yellow;
-    cursor: pointer;
-    border-bottom: 1px solid $yellow;
-    line-height: 100%;
-    display: inline-block;
-    margin: 5px 0 10px;
-    text-decoration: none;
   }
 
 
+  .btn--submit-action {
+    width: 360px;
+    max-width: 100%;
+    height: 70px;
+    margin-top: 20px;
+margin-bottom: 20px;
+
+  }
   .success-icon {
       display: none;
       svg {
@@ -243,6 +122,394 @@
 
 
 }
+
+
+// video -remodal settings
+
+.remodal--video {
+  .remodal__content-wrapper {
+    padding: 0;
+  }
+}
+// cases images -remodal settings
+
+
+
+
+
+/*
+REMODAL with header like a browser --- CURRENT USE
+ */
+
+.remodal.remodal--browser {
+      padding: 0;
+      background-color: #2e303c;
+
+    //different outlined classes
+    .outlined {
+      background: #ac9455;
+      color: #ffffff;
+      width: 100%;
+      padding: 10px 20px;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.22);
+      position: relative;
+    }
+    &.remodal--grant .outlined {
+      top: 10px;
+      @include media(">960px") {
+        font-size: 50px;
+      };
+    }
+
+    &.remodal--seo-landing .outlined {
+      margin-bottom: 10px;
+    }
+
+    &.remodal--get-order .outlined {
+      margin-bottom: 10px;
+    }
+
+    .remodal__header-wrapper {
+      background-color: #212121;
+      position: relative;
+      padding: 0 15px;
+      z-index: 70;
+    }
+
+    .c-controls {
+        display: flex;
+        height: 60px;
+    }
+    .c-control {
+        display: inline-block;
+        vertical-align: middle;
+        align-self: center;
+        width: 12px;
+        height: 12px;
+        margin: 0 5px;
+        border-radius: 50%;
+        border: 1px solid transparent;
+        transition: all .3s ease;
+
+    }
+
+
+    .c-control--close {
+      border-color: #968250;
+background-color: #937f4d;
+    }
+
+    .c-control--min {
+      border-color: #b39851;
+  background-color: #c5ab65;
+    }
+
+    .c-control--max {
+      border-color: #e8c875;
+    background-color: #e8c875;
+    }
+
+
+
+    .remodal-close {
+        top: 10px;
+        right: 15px;
+        svg {
+                fill: #ac9455;
+            &:hover {
+                fill: #ffce54;
+            }
+        }
+    }
+
+
+      .remodal__content-wrapper {
+        background-color: #141414;
+         background: -webkit-radial-gradient(circle closest-side at 50%, #202020 0%, #141414 100%);
+         background: -moz-radial-gradient(circle closest-side at 50%, #202020 0%, #141414 100%);
+         background: -o-radial-gradient(circle closest-side at 50%, #202020 0%, #141414 100%);
+         background: -ms-radial-gradient(circle closest-side at 50%, #202020 0%, #141414 100%);
+         background: radial-gradient(circle closest-side at 50%, #202020 0%, #141414 100%);
+             box-shadow: 0 0px 0 2px #212121 inset;
+      }
+    // setting for form inside remodal
+
+    //// outlined form
+    .site-form--basic-outlined {
+        text-align: center;
+        width: 480px;
+        max-width: 100%;
+        margin: auto;
+        padding: 5px;
+
+        background: #ac9455;
+        background: linear-gradient(135deg,#9a854e 0%,#e8c875 50%, #9a854e 100%);
+        form {
+          width: 360px;
+          max-width: 100%;
+          margin: 19px auto 0;
+          text-align: left;
+          color: white;
+        }
+        .site-form__header {
+          font-size: 50px;
+          @include media('>=480px', '<960px') {
+            font-size: 50px;
+            font-size: 8vw;
+          }
+          @include media('<480px') {
+            font-size: 40px !important;
+            margin-bottom: 0.67em;
+          }
+          color: white;
+          margin-bottom: 25px;
+          margin-top: 30px;
+          display: inline-block;
+          span {
+            display: block;
+          }
+        }
+
+        .site-form__subheader {
+
+          font-size: 18px;
+          color: #e2d2a9;
+          line-height: 1.2em;
+        }
+
+        //////////// outlined with inner
+
+        .site-form--basic-outlined__inner {
+          background: #141414;
+          padding: 10px;
+
+          @include media("<=414px") {
+            min-height: calc(100vh - 60px - 10px);
+            padding: 15px;
+          };
+        }
+        .btn.btn--brown:hover {
+          background: #9c864c;
+          text-decoration: none;
+          text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn--brown {
+          &.slick-prev:hover, &.slick-next:hover {
+            background: #9c864c;
+            text-decoration: none;
+            text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
+          }
+        }
+
+        .btn--submit-action {
+          width: 360px;
+          max-width: 100%;
+          height: 60px;
+              overflow: hidden;
+        }
+
+
+        &.site-form {
+          input {
+            &.notEmpty, &:focus {
+              background: #2e2e2e;
+              -webkit-box-shadow: 0 0 0 1px rgba(172, 148, 85, 0.35) inset;
+              -moz-box-shadow: 0 0 0 1px rgba(172, 148, 85, 0.35) inset;
+              box-shadow: 0 0 0 1px rgba(172, 148, 85, 0.35) inset;
+            }
+          }
+          textarea {
+            &.notEmpty, &:focus {
+              background: #2e2e2e;
+              -webkit-box-shadow: 0 0 0 1px rgba(172, 148, 85, 0.35) inset;
+              -moz-box-shadow: 0 0 0 1px rgba(172, 148, 85, 0.35) inset;
+              box-shadow: 0 0 0 1px rgba(172, 148, 85, 0.35) inset;
+            }
+          }
+          input, textarea {
+              width: 360px;
+              max-width: 100%;
+            &.notEmpty {
+              background: #2e2e2e;
+              color: #fff;
+              -webkit-box-shadow: 0 0 0 1px #000 inset;
+              -moz-box-shadow: 0 0 0 1px #000 inset;
+              box-shadow: 0 0 0 1px #000 inset;
+              &:focus {
+                background: #2e2e2e;
+                color: #fff;
+                -webkit-box-shadow: 0 0 0 1px #000 inset;
+                -moz-box-shadow: 0 0 0 1px #000 inset;
+                box-shadow: 0 0 0 1px #000 inset;
+              }
+            }
+            &.valid:focus {
+              background: #2e2e2e;
+              color: #fff;
+              -webkit-box-shadow: 0 0 0 1px #000 inset;
+              -moz-box-shadow: 0 0 0 1px #000 inset;
+              box-shadow: 0 0 0 1px #000 inset;
+            }
+          }
+          label {
+            font-family: Roboto,sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 28px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            text-align: left;
+            color: #939393;
+              &.error {
+                color: #dc5151;
+                position: absolute;
+                font-size: 11px;
+                margin-top: 3px;
+                line-height: 24px;
+              }
+          }
+          .form-group {
+            margin-bottom: 28px;
+          }
+        }
+    }
+
+
+
+/////////////////////////////////////////////////////
+/// ZOOMABLE IMAGES STYLES REMODAL /////////////////
+/// ///////////////////////////////////////////////
+
+&.remodal--zoom-images {
+  background: #141414;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 0;
+
+    // preload settings
+    .zoom-scene-overlay {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 60px;
+      background: #2e2e2e;
+      z-index: 1;
+    }
+
+    .zoom-scene-preloader {
+        position: absolute;
+        top: 25%;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    &.remodal--action .remodal__content-wrapper {
+        margin: auto;
+        padding: 25px;
+        background: #282834;
+        height: 100vh;
+    }
+
+    .zoom-images {
+        width: 100%;
+        height: 100%;
+    }
+
+    // navigation for zoom (will use from lightGallery)
+    .c-nav {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        .remodal-zoom-toolbar {
+            left: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            background: none;
+            width: 100%;
+            .lg-icon--remodal {
+              font-family: 'lg';
+              speak: none;
+              font-style: normal;
+              font-weight: normal;
+              font-variant: normal;
+              text-transform: none;
+              line-height: 1;
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale;
+              color: #c5ab65;
+              &:hover,
+              &:active {
+                color: #e8c875;
+              }
+              &.active {
+                color: #ffce54;
+              }
+              cursor: pointer;
+              font-size: 24px;
+              height: 100%;
+              line-height: 40px;
+              padding: 10px 0;
+              text-align: center;
+              width: 50px;
+              text-decoration: none !important;
+              outline: medium none;
+              transition: color 0.2s linear;
+              display: inline-block;
+              vertical-align: middle;
+
+              }
+              .lg-zoom-in--remodal:after {
+                content: "\e311";
+              }
+
+              .lg-actual-size--remodal {
+                font-size: 20px;
+              }
+              .lg-actual-size--remodal:after {
+                content: "\e033";
+              }
+
+              .lg-zoom-out--remodal:after {
+                content: "\e312";
+              }
+              .lg-fullscreen--remodal:after {
+                  content: "\e20c";
+              }
+
+        }
+
+    }
+    // zoom plugin settings
+    .displayregion {
+        border: 2px solid #ac9455!important;
+    }
+    .openseadragon-canvas {
+      background: radial-gradient(circle, rgba(19, 19, 19, 0.41) 0%, rgba(74, 74, 74, 0.38) 70%, rgba(65, 61, 54, 0.41) 100%), image('patterns/low_contrast_linen.png') !important;
+          box-shadow: 0 0 150px 50px rgba(24, 24, 24, 0.25) inset;
+      &:focus {
+          outline: none;
+        }
+
+    }
+
+}
+
+
+}
+
+
+
+
 
 /**
  * settings for different modals

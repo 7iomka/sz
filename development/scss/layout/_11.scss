@@ -17,9 +17,8 @@
   // swiper settings
   // --------------------------------------------------------------------------
   .swiper-container {
-        // width: 960px;
-        // max-width: 100%;
         width: 100%;
+        max-width: 960px;
         // padding-top: 50px;
         // padding-bottom: 50px;
         padding: 80px 0;
@@ -31,6 +30,10 @@
             width: 20px;
             height: 100%;
             z-index: 111;
+            @include media("<730px"){
+              opacity: 0;
+              visibility: hidden;
+            };
           }
           &:before {
             left: 0;
@@ -48,6 +51,16 @@
         width: 356px;
         height: 492px;
 
+        @include media("<480px") {
+          width: 300px;
+          height: 415px;
+          opacity: 0.2;
+
+          &.swiper-slide-active {
+            opacity: 1;
+          }
+        };
+
         // review
         .review {
           display: inline-block;
@@ -55,6 +68,8 @@
         .review__img {
           // width: 356px;
           // height: 492px;
+
+          width: 100%;
         }
 
 
@@ -72,17 +87,45 @@
             box-shadow: 10px 0 25px rgba(66, 66, 66, 0.33);
         }
 
+
     }
     .swiper-button-next, .swiper-button-prev {
       background-image: none;
       top: calc(50% + 62px);
       width: auto;
       height: auto;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
 
       // if window < container width
       @include media("<1100px") {
         background: #ac9455;
         padding: 10px;
+      };
+    }
+
+    .preview__prev--mobile,
+    .preview__next--mobile {
+      display: none;
+      @include media("<1100px") {
+        display: block;
+      };
+
+    }
+    @include media("<tablet") {
+      .swiper-button-prev {
+        left: 15px;
+      }
+      .swiper-button-next {
+        right: 15px;
+      }
+    }
+
+    .preview__prev,
+    .preview__next {
+       display: block;
+      @include media("<1100px") {
+        display: none;
       };
     }
 

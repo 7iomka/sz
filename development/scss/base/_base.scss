@@ -125,9 +125,13 @@ section {
       // color: $black;
       color:  #141414;
 
+      @include media('>=tablet', '<960px') {
+        font-size: 50px;
+        font-size: 8vw;
+      }
       @include media('>=480px', '<tablet') {
-        font-size: 50pt;
-        font-size: 9vw;
+        font-size: 50px;
+        font-size: 8vw;
       }
       @include media('<480px') {
         font-size: 40px !important;

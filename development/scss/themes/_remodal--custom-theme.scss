@@ -1,6 +1,6 @@
 $remodal-bg: #2e303c;
 $remodal-closeBg: #6679b2;
-$remodal-maxWidth: $max-width;
+$remodal-width: 480px;
 $remodal-title-outlineColor: #ff2851;
 
 // html.remodal-is-locked {
@@ -19,7 +19,8 @@ $remodal-title-outlineColor: #ff2851;
     padding: 28px 35px;
     color: $white;
     text-align: left;
-    max-width: $remodal-maxWidth;
+    width: $remodal-width;
+    max-width: 100%;
 }
 .remodal__title {
     font-family: "Proxima_Nova", sans-serif;
