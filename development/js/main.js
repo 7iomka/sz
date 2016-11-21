@@ -282,11 +282,14 @@ jQuery(document).ready(function($) {
           // ----------------------------------------------------------------------------
           /** Init global viewer instance **/
           var viewer;
+          var viewerHasStarted = false;
 
           /** Translate buttons labels **/
           OpenSeadragon.setString("Tooltips.Home","Сбросить");
           OpenSeadragon.setString("Tooltips.ZoomOut","Уменьшить");
           OpenSeadragon.setString("Tooltips.ZoomIn", "Увеличить");
+
+
 
           /**
            * Custom event handler for reset-viewport button
@@ -306,46 +309,55 @@ jQuery(document).ready(function($) {
            * @param  String containerId
            * @param  String imageUrl
            */
-          function initDeepZoom(containerId, imageUrl) {
+          function initDeepZoom(containerId, imageUrl, callback) {
             // write to global - basic settings with necessary parametrs
-            viewer = OpenSeadragon({
-                  id:  containerId,
-                  tileSources: {
-                   type: 'image',
-                   url: imageUrl,
-                 },
-                  zoomInButton : "zoom-in--remodal",
-                  zoomOutButton : "zoom-out--remodal",
-                  visibilityRatio : 1,
-                  defaultZoomLevel : 1,
-                  // minZoomLevel : 1,
-                  // allowZoomToConstraintsOnResize : true,
-                  showNavigator : true,
-                  navigatorPosition : "TOP_RIGHT",
+
+
+              viewer = OpenSeadragon({
+                id:  containerId,
+                tileSources: {
+                  type: 'image',
+                  url: imageUrl,
+                },
+                zoomInButton : "zoom-in--remodal",
+                zoomOutButton : "zoom-out--remodal",
+                visibilityRatio : 1,
+                defaultZoomLevel : 1,
+                // minZoomLevel : 1,
+                // allowZoomToConstraintsOnResize : true,
+                showNavigator : true,
+                navigatorPosition : "TOP_RIGHT",
               });
               // events stuff
               (function(_viewer) {
-                  var zoom,
-                      oldContainerSize,
-                      containerSize;
+                var zoom,
+                oldContainerSize,
+                containerSize;
 
-                  viewer.addHandler("open", function () {
-                    setTimeout(function () {
-                      resetViewportToStartPosition();
-                    },0);
-                  });
+                viewer.addHandler("open", function () {
+                  setTimeout(function () {
+                    resetViewportToStartPosition();
+                  },0);
+                });
 
-                  viewer.addHandler('resize', function(e) {
-                      zoom = e.eventSource.viewport.getZoom();
-                      oldContainerSize = containerSize;
-                      containerSize = e.newContainerSize;
+                viewer.addHandler('resize', function(e) {
+                  zoom = e.eventSource.viewport.getZoom();
+                  oldContainerSize = containerSize;
+                  containerSize = e.newContainerSize;
 
-                  });
+                });
 
-                  viewer.addHandler('animation', function(e) {
-                      zoom = e.eventSource.viewport.getZoom();
-                  });
+                viewer.addHandler('animation', function(e) {
+                  zoom = e.eventSource.viewport.getZoom();
+                });
+                viewer.addHandler('tile-loaded', function(e) {
+
+                  typeof callback === 'function' ? callback() : console.log('scene initialized');
+                });
               })(viewer);
+
+              if(!viewerHasStarted) viewerHasStarted = true;
+
 
 
 
@@ -381,7 +393,12 @@ jQuery(document).ready(function($) {
            */
           // remove padding
           $(document).on('opening', '.remodal--zoom-images', function(e) {
-
+              if(viewerHasStarted) {
+                $('.zoom-scene-overlay').show();
+                setTimeout(function () {
+                  $('.zoom-scene-overlay').fadeOut();
+                }, 3000)
+              }
               $('.remodal--zoom-images').parent().css({'padding-bottom': 0});
               /** hot fix for Android browser **/
               if (is_android_default_bro) {
@@ -394,8 +411,10 @@ jQuery(document).ready(function($) {
           });
           // remove image canvas stuff after close && fadeIn overlay with preloader
           $(document).on('closing', '.remodal--zoom-images', function(e) {
-              $('.zoom-images').html('');
               $('.zoom-scene-overlay').fadeIn();
+
+                $('.zoom-images').html('');
+
           });
 
 
@@ -429,10 +448,12 @@ jQuery(document).ready(function($) {
                     currentProjectCase = projectCasesList[+projectId-1];
 
                 // start zoom scene
-                initDeepZoom("zoom-images", currentProjectCase.url);
-                  setTimeout(function () {
-                    $('.zoom-scene-overlay').fadeOut();
-                  }, 1000);
+                initDeepZoom("zoom-images", currentProjectCase.url, function () {
+                  $('.zoom-scene-overlay').fadeOut();
+                  $('#zoom-images').data('projectId', currentProjectCase.url);
+                });
+
+
 
                 });
 
