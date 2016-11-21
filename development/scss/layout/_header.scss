@@ -9,7 +9,12 @@ header.site-header {
   overflow: hidden;
   padding: 95px 0 88px;
   position: relative;
-
+  background: none;
+  z-index: auto;
+  width: auto;
+  height: auto;
+  left: auto;
+  right: auto;
 
   &:before {
     content: "";
@@ -31,6 +36,20 @@ header.site-header {
     };
     // background: url(/img/header-preview.png) 50% 0 no-repeat;
 }
+
+
+/////////// remove fallback styles
+.logo.logo--large a {
+    text-decoration: none;
+}
+
+.top-pulled,
+#header-nav,
+.header-parallax-container,
+.top-logo {
+    opacity: 1;
+}
+
 
 
   // disable underline for all links

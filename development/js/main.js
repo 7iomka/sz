@@ -39,50 +39,13 @@ jQuery(document).ready(function($) {
             }
 
           }
-          // ------------------------------------------------------------------
-          // Enable panZoom for all elemnts with class .panzoom
-          // ------------------------------------------------------------------
-          // var $panzoom = $('.panzoom').panzoom({
-          //   panOnlyWhenZoomed: true,
-          //   minScale: 1,
-          //   maxScale: 6,
-          //   // maxScale: $(this)[0].naturalWidth / $(this)[0].clientWidth,
-          //   $zoomIn: $("#lg-zoom-in--remodal"),
-          //   $zoomOut: $("#lg-zoom-out--remodal"),
-          //   // $zoomRange: $section.find(".zoom-range"),
-          //   $reset: $("#lg-actual-size--remodal"),
-          //   onStart: function (e, panzoom) {
-          //     if(maxWidthCss(959)) {
-          //       $('.panzoom').panzoom("option", "panOnlyWhenZoomed", false);
-          //     }
-          //   },
-          //   focal: {clientX:0, clientY:0},
-          //   // contain: 'automatic',
-          //      animate: true,
-          //      contain: 'invert'
-          //
-          // });
-
-
-
-
-          // $panzoom.parent().on('mousewheel.focal', function( e ) {
-          //   e.preventDefault();
-          //   var delta = e.delta || e.originalEvent.wheelDelta;
-          //   var zoomOut = delta ? delta < 0 : e.originalEvent.deltaY > 0;
-          //   $panzoom.panzoom('zoom', zoomOut, {
-          //     increment: 0.1,
-          //     animate: false,
-          //     focal: e
-          //   });
-          // });
 
 
 
           // ------------------------------------------------------------------
           // Wawes material effect initialization to all buttons
           // ------------------------------------------------------------------
-          Waves.attach('.btn');
+          Waves.attach('.btn', ['waves-circle', 'waves-float']);
           Waves.init();
 
           // ------------------------------------------------------------------
@@ -159,9 +122,6 @@ jQuery(document).ready(function($) {
                 $orderRemodalInstance.open();
               })
 
-          $(document).on('opening', '.remodal--action', function(e) {
-
-          });
 
           $('.remodal--action, .inline--action').each(function() {
               var $context = $(this),
@@ -319,13 +279,24 @@ jQuery(document).ready(function($) {
                   type: 'image',
                   url: imageUrl,
                 },
+                toolbar:        "remodal-zoom-toolbar",
                 zoomInButton : "zoom-in--remodal",
                 zoomOutButton : "zoom-out--remodal",
+                // custom not extist for prevent error
+                // homeButton:     "not1",
+                // fullPageButton: "not2",
+                // nextButton:     "not3",
+                // previousButton: "not4",
+
                 visibilityRatio : 1,
                 defaultZoomLevel : 1,
                 // minZoomLevel : 1,
                 // allowZoomToConstraintsOnResize : true,
                 showNavigator : true,
+                showFullScreenControl: false,
+                showFullPageControl: false,
+                showHomeControl: false,
+                showRotationControl: false,
                 navigatorPosition : "TOP_RIGHT",
               });
               // events stuff

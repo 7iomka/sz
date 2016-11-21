@@ -14,6 +14,9 @@ $remodal-title-outlineColor: #ff2851;
       padding: 0;
     };
 }
+.remodal-overlay {
+  background: rgba(25, 23, 18, 0.96);
+}
 .remodal {
     background-color: $remodal-bg;
     padding: 28px 35px;

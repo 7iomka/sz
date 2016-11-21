@@ -70,7 +70,7 @@
                 <li class="c-control c-control--min"></li>
                 <li class="c-control c-control--max"></li>
                 <li class="c-nav">
-                  <div class="remodal-zoom-toolbar"><span id="zoom-in--remodal" class="lg-icon--remodal lg-zoom-in--remodal"></span><span id="zoom-out--remodal" class="lg-icon--remodal lg-zoom-out--remodal"></span><span id="actual-size--remodal" class="lg-icon--remodal lg-actual-size--remodal"></span><!--<span id="fullscreen--remodal" class="lg-fullscreen--remodal lg-icon--remodal"></span>-->
+                  <div class="remodal-zoom-toolbar" id="remodal-zoom-toolbar"><span id="zoom-in--remodal" class="lg-icon--remodal lg-zoom-in--remodal"></span><span id="zoom-out--remodal" class="lg-icon--remodal lg-zoom-out--remodal"></span><span id="actual-size--remodal" class="lg-icon--remodal lg-actual-size--remodal"></span><!--<span id="fullscreen--remodal" class="lg-fullscreen--remodal lg-icon--remodal"></span>-->
                   </div>
                 </li>
             </ul>

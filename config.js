@@ -4,8 +4,8 @@ var siteURL = 'http://seosintez.cc:8081';
 
 /********* Get invironment **********/
 var gutil = require('gulp-util');
-var env = gutil.env.env || 'development';
-// var env = gutil.env.env || 'production';
+// var env = gutil.env.env || 'development';
+var env = gutil.env.env || 'production';
 console.log(env);
 var _ = require('lodash');
 
@@ -14,7 +14,8 @@ var _ = require('lodash');
  */
  var devSrc        = 'development/',
      devDest       = 'development-compiled', // for compile uncompressed assets for testing
-     prodDest      = 'production'; // for compile compressed and minified version of project
+     prodDest      = 'development-compiled'; // for compile compressed and minified version of project
+    //  prodDest      = 'production'; // for compile compressed and minified version of project
 
  var outputDest    = ( (env === 'development') ? devDest : prodDest ) + '/';
 
@@ -70,7 +71,7 @@ var jsFiles = [
   paths.src.jsLibDir + 'jquery.validate.all.min.js',
   paths.src.jsLibDir + 'remodal.min.js',
   paths.src.jsLibDir + 'lightgallery-all.min.js',
-  paths.src.jsLibDir + 'jquery.panzoom.min.js',
+  // paths.src.jsLibDir + 'jquery.panzoom.min.js',
   paths.src.jsLibDir + 'jquery.mousewheel.min.js',
   paths.src.jsLibDir + 'openseadragon.min.js',
   // paths.src.jsLibDir + 'lazyYT.js',
@@ -158,7 +159,7 @@ var jsFilesSeparated = [
     },
     production: {
         js:  {
-            uglify: false,//temporar
+            uglify: true,
             wrap: true, //is comments contains name of the file in concatenated final file
             gzip: false //temporar
         },
@@ -168,7 +169,7 @@ var jsFilesSeparated = [
         styles: {
             maps: false,
             minify: true,
-            gzip: true
+            gzip: false
         },
         img: {
             optimize: true

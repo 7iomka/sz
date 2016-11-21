@@ -1,9 +1,7 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles for remodal with actions (order-now, consult and etc..)
 // -----------------------------------------------------------------------------
-.remodal-overlay {
-    background: rgba(20,18,25,0.96);
-}
+
 /** Skeleton styles for actions remodal **/
 .remodal--action {
   border-radius: 5px;
@@ -484,6 +482,10 @@ background-color: #937f4d;
               }
               .lg-fullscreen--remodal:after {
                   content: "\e20c";
+              }
+
+              > div {
+                display: none!important;
               }
 
         }

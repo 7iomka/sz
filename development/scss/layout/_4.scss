@@ -13,4 +13,16 @@
     width: 90%;
     float: right;
   }
+
+  @include media("<tablet") {
+    .fb-container,
+    .vk-container {
+      float: none;
+      width: 100%;
+    }
+
+      .fb-container {
+        margin-bottom: 40px;
+      }
+  };
 }

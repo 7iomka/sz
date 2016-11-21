@@ -37,10 +37,12 @@ nav[role=navigation] {
   transition: all 0.3s ease-out;
 }
 
-nav[role=navigation] {
-  overflow: hidden;
-  max-height: 0;
-}
+@include media("<960px") {
+  nav[role=navigation] {
+    overflow: hidden;
+    max-height: 0;
+  }
+};
 
 nav[role=navigation] {
     text-align: center;

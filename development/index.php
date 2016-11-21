@@ -6,15 +6,143 @@
     <title>Создание и продвижение сайтов. Реклама сайтов в Яндекс Директ и Google AdWords</title>
     <meta name="keywords" content="создание и продвижение сайтов. реклама сайтов в яндекс директ" />
     <meta name="description" content="Агентство  интернет-маркетинга SEOSINTEZ. Создание сайтов любой тематики и сложности. SEO продвижение сайтов. Настройка и сопровождение рекламных кампаний в Яндекс Директ и Google AdWords" />
-    <link rel="stylesheet" href="css/main.css" media="screen" title="no title" charset="utf-8">
-    <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0">
+    <meta name=viewport content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta content="yes" name="apple-mobile-web-app-capable">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <!-- Favicons -->
     <!-- <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" href="/favicon.ico"> -->
+    <style>
+    header.site-header { left: 0; top: 0px; position: absolute; z-index: 999; width: 100%; height: 100%; background-color: #141414; } .brown { color: #ac9455; } header.site-header .top-pulled, header.site-header #header-nav, header.site-header .header-parallax-container, header.site-header .top-logo { opacity: 0; }
+    </style>
+    <link rel="preload" href="css/main.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="css/main.css" media="all" title="no title" charset="utf-8"></noscript>
+       <script>
+       /*! loadCSS: load a CSS file asynchronously. [c]2016 @scottjehl, Filament Group, Inc. Licensed MIT */
+       (function(w){
+         "use strict";
+         /* exported loadCSS */
+         var loadCSS = function( href, before, media ){
+           // Arguments explained:
+           // `href` [REQUIRED] is the URL for your CSS file.
+           // `before` [OPTIONAL] is the element the script should use as a reference for injecting our stylesheet <link> before
+             // By default, loadCSS attempts to inject the link after the last stylesheet or script in the DOM. However, you might desire a more specific location in your document.
+           // `media` [OPTIONAL] is the media type or query of the stylesheet. By default it will be 'all'
+           var doc = w.document;
+           var ss = doc.createElement( "link" );
+           var ref;
+           if( before ){
+             ref = before;
+           }
+           else {
+             var refs = ( doc.body || doc.getElementsByTagName( "head" )[ 0 ] ).childNodes;
+             ref = refs[ refs.length - 1];
+           }
+
+           var sheets = doc.styleSheets;
+           ss.rel = "stylesheet";
+           ss.href = href;
+           // temporarily set media to something inapplicable to ensure it'll fetch without blocking render
+           ss.media = "only x";
+
+           // wait until body is defined before injecting link. This ensures a non-blocking load in IE11.
+           function ready( cb ){
+             if( doc.body ){
+               return cb();
+             }
+             setTimeout(function(){
+               ready( cb );
+             });
+           }
+           // Inject link
+             // Note: the ternary preserves the existing behavior of "before" argument, but we could choose to change the argument to "after" in a later release and standardize on ref.nextSibling for all refs
+             // Note: `insertBefore` is used instead of `appendChild`, for safety re: http://www.paulirish.com/2011/surefire-dom-element-insertion/
+           ready( function(){
+             ref.parentNode.insertBefore( ss, ( before ? ref : ref.nextSibling ) );
+           });
+           // A method (exposed on return object for external use) that mimics onload by polling until document.styleSheets until it includes the new sheet.
+           var onloadcssdefined = function( cb ){
+             var resolvedHref = ss.href;
+             var i = sheets.length;
+             while( i-- ){
+               if( sheets[ i ].href === resolvedHref ){
+                 return cb();
+               }
+             }
+             setTimeout(function() {
+               onloadcssdefined( cb );
+             });
+           };
+
+           function loadCB(){
+             if( ss.addEventListener ){
+               ss.removeEventListener( "load", loadCB );
+             }
+             ss.media = media || "all";
+           }
+
+           // once loaded, set link's media back to `all` so that the stylesheet applies once it loads
+           if( ss.addEventListener ){
+             ss.addEventListener( "load", loadCB);
+           }
+           ss.onloadcssdefined = onloadcssdefined;
+           onloadcssdefined( loadCB );
+           return ss;
+         };
+         // commonjs
+         if( typeof exports !== "undefined" ){
+           exports.loadCSS = loadCSS;
+         }
+         else {
+           w.loadCSS = loadCSS;
+         }
+       }( typeof global !== "undefined" ? global : this ));
+
+
+
+
+       /* CSS rel=preload polyfill (from src/cssrelpreload.js) */
+       /* CSS rel=preload polyfill. Depends on loadCSS function */
+       (function( w ){
+         // rel=preload support test
+         if( !w.loadCSS ){
+           return;
+         }
+         var rp = loadCSS.relpreload = {};
+         rp.support = function(){
+           try {
+             return w.document.createElement("link").relList.supports( "preload" );
+           } catch (e) {}
+         };
+
+         // loop preload links and fetch using loadCSS
+         rp.poly = function(){
+           var links = w.document.getElementsByTagName( "link" );
+           for( var i = 0; i < links.length; i++ ){
+             var link = links[ i ];
+             if( link.rel === "preload" && link.getAttribute( "as" ) === "style" ){
+               w.loadCSS( link.href, link );
+               link.rel = null;
+             }
+           }
+         };
+
+         // if link[rel=preload] is not supported, we must fetch the CSS manually using loadCSS
+         if( !rp.support() ){
+           rp.poly();
+           var run = w.setInterval( rp.poly, 300 );
+           if( w.addEventListener ){
+             w.addEventListener( "load", function(){
+               w.clearInterval( run );
+             } )
+           }
+         }
+       }( this ));
+
+       </script>
+
+       <script></script><!-- here to ensure a non-blocking load still occurs in IE and Edge, even if scripts follow loadCSS in head -->
+
 
 </head>
 
@@ -25,14 +153,9 @@
           <!-- Menu-->
           <div id="header-nav">
             <div class="container">
-              <!-- H1 for SEO -->
 
                 <!-- Small screen menu button -->
-            		<!-- <a href="#menu" class="menu-link">
-                  <span class="bar1"></span>
-                  <span class="bar2"></span>
-                  <span class="bar3"></span>
-                 </a> -->
+
                  <div id="hamburger-icon" class="hamburger">
                     <div class="icon"></div>
                     <div class="hamburger-text">Меню</div>
@@ -58,7 +181,7 @@
             				<li class="menu__item menu__item--last"><a href="#contacts">Контакты</a></li>
             			</ul>
             		</nav>
-            <!-- /Menu Items -->
+              <!-- /Menu Items -->
               </div>
         	</div>
         <!-- /Menu -->
@@ -84,7 +207,7 @@
                     <div class="col col--6-of-12 top-pulled">
                         <div class="header-contacts">
                             <ul class="phones">
-                                <li><a href="tel:79039696368" class="phone">+7 (495) 125•27•65</a></li>
+                                <li><a href="tel:74951252765" class="phone">+7 (495) 125•27•65</a></li>
                             </ul>
                             <p class="small-text yellow"><a class="brown underline" href="#" data-remodal-target="get_callback">Перезвоним через 10 минут</a></p>
 
@@ -224,7 +347,7 @@
                         <div class="fb-container">
                             <!-- Facebook comments widget start -->
                             <div id="fb-root"></div>
-                            <!-- <script>
+                            <script>
                                 (function(d, s, id) {
                                     var js, fjs = d.getElementsByTagName(s)[0];
                                     if (d.getElementById(id)) return;
@@ -233,7 +356,7 @@
                                     js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.7";
                                     fjs.parentNode.insertBefore(js, fjs);
                                 }(document, 'script', 'facebook-jssdk'));
-                            </script> -->
+                            </script>
                             <!-- Facebook comments widget end -->
                             <div class="fb-comments" data-href="http://seosintez.ru/" data-width="100%" data-numposts="5"></div>
                         </div>
@@ -250,13 +373,13 @@
 
                             <!-- Put this div tag to the place, where the Comments block will be -->
                             <div id="vk_comments" style="width: 100%;"></div>
-                            <!-- <script type="text/javascript">
+                            <script type="text/javascript">
                                 VK.Widgets.Comments("vk_comments", {
                                     limit: 5,
                                     width: "450",
                                     attach: "*"
                                 });
-                            </script> -->
+                            </script>
                         </div>
                     </div>
                 </div>
@@ -972,7 +1095,7 @@
                 nua.indexOf('AppleWebKit') > -1) && !(nua.indexOf('Chrome') > -1));
 
             function switchClassesDependences(){
-                  if(is_android_default_bro) { 
+                  if(is_android_default_bro) {
                     addClass(coreElement, 'is_android_default_bro');
 
                   } else {
