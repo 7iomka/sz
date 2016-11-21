@@ -23,26 +23,26 @@
         // padding-bottom: 50px;
         padding: 80px 0;
       &.swiper-container-coverflow {
-          &:before, &:after {
-            content: "";
-            top: 0;
-            position: absolute;
-            width: 20px;
-            height: 100%;
-            z-index: 111;
-            @include media("<730px"){
-              opacity: 0;
-              visibility: hidden;
-            };
-          }
-          &:before {
-            left: 0;
-            background: linear-gradient(to right, #141414, rgba(255, 255, 255, 0));
-          }
-          &:after {
-            right: 0;
-            background: linear-gradient(to left, #141414, rgba(255, 255, 255, 0));
-          }
+          // &:before, &:after {
+          //   content: "";
+          //   top: 0;
+          //   position: absolute;
+          //   width: 20px;
+          //   height: 100%;
+          //   z-index: 111;
+          //   @include media("<730px"){
+          //     opacity: 0;
+          //     visibility: hidden;
+          //   };
+          // }
+          // &:before {
+          //   left: 0;
+          //   background: linear-gradient(to right, #141414, rgba(255, 255, 255, 0));
+          // }
+          // &:after {
+          //   right: 0;
+          //   background: linear-gradient(to left, #141414, rgba(255, 255, 255, 0));
+          // }
       }
     }
 
@@ -91,6 +91,7 @@
     }
     .swiper-button-next, .swiper-button-prev {
       background-image: none;
+      top: 58%;
       top: calc(50% + 62px);
       width: auto;
       height: auto;
@@ -124,6 +125,8 @@
     .preview__prev,
     .preview__next {
        display: block;
+       padding: 10px;
+        background: rgba(255, 255, 255, 0.56);
       @include media("<1100px") {
         display: none;
       };
@@ -136,6 +139,50 @@
         }
     }
 
+/** paralllax img **/
+  .parallax-img {
+    position: absolute;
+    top:0;
+    bottom: 0;
+    margin: auto;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    animation-duration: 15s;
+    @include media("<960px") {
+      animation: none;
+      display: none;
+    };
+
+    &.parallax-img--left {
+      left: 40px;
+
+      animation-name: spheres3;
+    }
+    &.parallax-img--right {
+      right: 40px;
+      animation-name: spheres4;
+    }
+
+    @keyframes spheres3 {
+        0%,100%,50% {
+            transform: rotateY(25deg) translateX(-12px) ;
+        }
+
+        25%,75% {
+            transform: rotateY(-25deg) translateX(-12px) translateY(-25px);
+        }
+    }
+
+    @keyframes spheres4 {
+        0%,100%,50% {
+            transform: rotateY(25deg) translateX(12px) ;
+        }
+
+        25%,75% {
+            transform: rotateY(-25deg) translateX(12px) translateY(25px);
+        }
+    }
+  }
 
 
 }

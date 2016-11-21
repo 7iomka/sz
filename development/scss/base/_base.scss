@@ -193,27 +193,6 @@ form {
   }
 }
 .is_android_default_bro {
-    .photo-faq .swiper-wrapper {
-      position:relative;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-    }
-    .photo-faq .slider img {
-        display: inline-block!important;
-        float: left;
-        -webkit-flex-shrink: 0;
-        -ms-flex: 0 0 auto;
-        flex-shrink: 0;
-        width: 100%;
-        height: 100%;
-        position: relative;
-    }
 
     * {
       -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -230,22 +209,19 @@ form {
       outline: none !important;
     }
 
-    .short-navigation-wrapper .header-navigation li,
-    .short-navigation-wrapper .header-navigation.header-navigation--expanded .header-menu-container,
-    .no-flexwrap .short-navigation-wrapper .header-navigation .header-menu,
-    .short-navigation-wrapper .header-navigation.header-navigation--expanded .header-menu, .short-navigation-wrapper .header-navigation.header-navigation--expanded .header-menu_item, .short-navigation-wrapper .header-navigation.header-navigation--expanded .header-menu_button, .short-navigation-wrapper .header-navigation.header-navigation--expanded .header-menu_phone {
-      transition: none;
-      transition-delay: 0s;
-    }
+  //fix keyboard problem
+  .remodal-wrapper {
+    position: absolute;
+  }
 
-      .short-navigation-wrapper .header-navigation.header-navigation--expanded .header-menu-container {
-          padding-top: 60px;
-         }
+  .remodal.remodal--browser.remodal--zoom-images {
 
-      .short-navigation-wrapper .header-navigation.header-navigation--expanded .header-menu-container {
-          position: relative;
-          padding-bottom: 100%;
-      }
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
 
 
 }
@@ -367,33 +343,50 @@ form {
 .no-flexwrap {
 
 
-  .comparation-line,
-  .comparation-line .col,
-  .comparation-results,
-  .some_list,
-  .photo-faq__step,
-  .econom-section .econom-sqare-outer,
-  .juridic .warning-block,
-  .footer-contacts,
-  .photo-faq .photo-overlay-container,
-  footer.footer .photo-overlay-container,
-  .econom-container,
-  .econom-section .square-list.econom-list,
-  .footer-contacts .phones,
-  .photo-faq__step,
-  .gallery .gallery__container,
-  .short-navigation-wrapper .header-navigation .header-menu-container,
-  .calculator .calculator__steps__line,
-  .radio-like-checkbox-container
-   {
-      display: block;
-  }
-  .gallery .gallery__container .mix {
-    float: left;
+
+  //  {
+  //     display: block;
+  // }
+
+  .c-controls {
+    padding: 15px 0;
   }
 
-  .radio-like-checkbox-wrapper {
+.portfolio-gallery {
+  .gallery__container {
     display: inline-block;
+  }
+}
+
+  .portfolio .project {
+    .project__desc {
+      display: inline-block;
+      text-align: center;
+    }
+    .project__stats,.project__title {
+          width: auto;
+      }
+      .project__stats {
+          width: auto;
+          display: block;
+          text-align: justify;
+          &:after {
+          	content: '';
+          	display: inline-block;
+          	width: 100%;
+          }
+      }
+
+      .portfolio .project .project__title {
+          width: auto;
+      }
+
+      .state, .state__sep {
+          display: inline-block;
+      }
+
+
+
   }
 
   .square-item__link {
@@ -401,130 +394,10 @@ form {
   }
 
 
-  input[type=radio].radio-like-checkbox:checked + label.label_radio-like-checkbox {
-    display: block;
-  }
-  /** if facet isset - go animation appear radio-like-checkbox **/
-      #radio-b5-facet:checked + label + label + .question + .radio-like-checkbox-container .radio-like-checkbox-wrapper{
-          transform: translateY(0);
-          opacity: 1;
-      }
-
-      #radio-b5-facet + label + label + .question + .radio-like-checkbox-container .radio-like-checkbox-wrapper {
-          opacity: 0;
-          transform: translateY(30%);
-          transition: 0.5s ease all;
-      }
-  @for $chi2 from 1 through 10 {
-         #radio-b5-facet + label + label + .question + .radio-like-checkbox-container .radio-like-checkbox-wrapper:nth-child(#{$chi2}) {
-             transition-delay: #{$chi2/10}s;
-         }
-       }
-
-
-.short-navigation-wrapper .header-navigation .header-menu-container {
-      transform: translate(0, -100%);
-}
-.short-navigation-wrapper .header-navigation .header-menu {
-      transform: translate(0, -100%);
-}
 
 .remodal-wrapper {
   z-index: 999999!important;
 }
-.slick-slider {
-touch-action: auto;
--ms-touch-action: auto;
-}
-
-.remodal--gallery--wrapper {
-    position: relative;
-    z-index: 999;
-}
-
-.photo-faq__step {
-  align-items: flex-start;
-  text-align: center;
-}
-.photo-faq__step > div {
-  display: inline-block;
-  vertical-align: middle;
-}
-.photo-faq__step .square-item__desc {
-  flex-basis: auto;
-}
-  .photo-faq__form .drop-container {
-      display: block;
-      text-align: center;
-      .drop-cell {
-        display: inline-block;
-        max-width: 110px;
-        margin: 10px;
-      }
-    }
-
-    .econom-section .econom-sqare-outer,
-    .econom-section .square-list.econom-list,
-    .econom-section .square-item {
-        width: 100%;
-        text-align: center;
-        display: block;
-        margin:auto;
-    }
-    .econom-section .square-list.econom-list{
-      margin-top: 25px;
-      margin-bottom: 25px;
-    }
-    .econom-right-part {
-      max-width: 100%;
-    }
-
-    .econom-section .square-item__img {
-        padding: 5px;
-        margin: 0 auto;
-        display: block;
-    }
-    .econom-section .square-item__desc {
-      margin-left: 0;
-      display: block;
-    }
-
-    .assortment .some_list__item {
-      display: inline-block;
-      width: 100%;
-      max-width: 100%;
-      margin-left: 0;
-      margin-right: 0;
-    }
-    .footer-contacts .phones li {
-      display: inline-block;
-    }
-    .footer-contacts .btn {
-      margin: 15px auto;
-      display: block;
-    }
-
-    .photo-faq .swiper-wrapper {
-      position:relative;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-    }
-    .photo-faq .slider img {
-        display: inline-block!important;
-        float: left;
-        -webkit-flex-shrink: 0;
-        -ms-flex: 0 0 auto;
-        flex-shrink: 0;
-        width: 100%;
-        height: 100%;
-        position: relative;
-    }
 
 
 

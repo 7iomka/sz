@@ -19,8 +19,52 @@
     padding: 45px 0;
 
   };
+    &.arugument--with-parallax {
+      position: relative;
+    }
     &.argument--first {
       padding: 0 0 40px 0;
+      // parallax element - img position
+      .parallax-img {
+          right: 0;
+          position: absolute;
+          bottom: -40%;
+          animation-iteration-count: infinite;
+          animation-fill-mode: both;
+          animation-duration: 15s;
+          animation-name: spheres;
+      }
+
+        @keyframes spheres {
+            0%,100%,50% {
+                transform: rotateY(25deg) translateX(42px) ;
+            }
+
+            25%,75% {
+                transform: rotateY(-25deg) translateX(42px) translateY(25px);
+            }
+        }
+    }
+
+    &.argument--4 {
+      .parallax-img {
+        position: absolute;
+        bottom: -60%;
+        animation-iteration-count: infinite;
+        animation-fill-mode: both;
+        animation-duration: 15s;
+        animation-name: spheres2;
+     }
+
+      @keyframes spheres2 {
+          0%,100%,50% {
+              transform: rotateY(25deg) translateX(-42px) ;
+          }
+
+          25%,75% {
+              transform: rotateY(-25deg) translateX(-42px) translateY(-55px);
+          }
+      }
     }
 
     // dark inverted styles

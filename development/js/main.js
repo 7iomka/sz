@@ -291,12 +291,15 @@ jQuery(document).ready(function($) {
           /**
            * Custom event handler for reset-viewport button
            */
-          function resetViewportToStartPosition() {
-                // var newBounds = new OpenSeadragon.Rect(0, 0, 1);
-                // viewer.viewport.fitBounds(newBounds, true);
+          /**
+           * @param Boolean withAnimation
+           */
+          function resetViewportToStartPosition(disableScaleAnimation) {
+                // disable animation (default true)
+                var disableScaleAnimation = disableScaleAnimation == false ? false : true;
                 var oldBounds = viewer.viewport.getBounds();
                 var newBounds = new OpenSeadragon.Rect(0, 0, 1, oldBounds.height / oldBounds.width);
-                viewer.viewport.fitBounds(newBounds, true);
+                viewer.viewport.fitBounds(newBounds, disableScaleAnimation);
           }
 
           /**
@@ -328,7 +331,7 @@ jQuery(document).ready(function($) {
 
                   viewer.addHandler("open", function () {
                     setTimeout(function () {
-                      resetViewportToStartPosition()
+                      resetViewportToStartPosition();
                     },0);
                   });
 
@@ -356,7 +359,7 @@ jQuery(document).ready(function($) {
           $('.lg-icon--remodal').on('click', function () {
             //
             if($(this).hasClass('lg-actual-size--remodal')) {
-              resetViewportToStartPosition();
+              resetViewportToStartPosition(false);
             }
             if($('.lg-icon--remodal').hasClass('active')) {
               $('.lg-icon--remodal').removeClass('active')
@@ -378,13 +381,23 @@ jQuery(document).ready(function($) {
            */
           // remove padding
           $(document).on('opening', '.remodal--zoom-images', function(e) {
+
               $('.remodal--zoom-images').parent().css({'padding-bottom': 0});
+              /** hot fix for Android browser **/
+              if (is_android_default_bro) {
+                //
+                //   // Tweak the canvas opacity, causing it to redraw
+                // $("canvas").parents("*").css("overflow", "visible");
+                $('.remodal--zoom-images').closest('.remodal-wrapper').css({'position': 'fixed'})
+
+              }
           });
           // remove image canvas stuff after close && fadeIn overlay with preloader
           $(document).on('closing', '.remodal--zoom-images', function(e) {
               $('.zoom-images').html('');
               $('.zoom-scene-overlay').fadeIn();
           });
+
 
 
           // ----------------------------------------------------------------------------
@@ -592,6 +605,348 @@ jQuery(document).ready(function($) {
               myMap = null;
           }
       }
+
+
+    // ------------------------------------------------------------------------
+    // ANIMATIONS REVEAL
+    // ------------------------------------------------------------------------
+
+      if (!isMobile.any && !is_android_default_bro) {
+
+        $("section").each(function(index, elem) {
+
+
+            // ANIMATION FOR arguments SECTION
+            if ($(this).hasClass('arguments') || $(this).hasClass('seo-landing')) {
+              var $arguments_g_h2 = $('h2', this);
+              new ScrollMagic.Scene({reverse: false, triggerElement: elem, offset: 158, triggerHook: 100})
+                              .setTween(
+                                new TimelineMax()
+                                .set([$arguments_g_h2], {opacity: 0})
+
+                                .fromTo($arguments_g_h2, 1, {
+                                    y: 55
+                                }, {
+                                    y: 0,
+                                    opacity: 1,
+                                    clearProps: 'transform, opacity',
+                                    ease: Back.easeOut.config(1.4)
+                                }, 0.35)
+
+                            ).addTo(scrollMagicController);
+              $('.argument', this).each(function (i, argument) {
+                var $argument__imageWrapper = $('.argument__img-wrapper', argument),
+                    $argument__details = $('.argument__details', argument),
+                    $argument__headerWrapper = $('.argument__header-wrapper');
+
+                    new ScrollMagic.Scene({reverse: false, triggerElement: argument, offset: 0, triggerHook: 0.7})
+                    .setTween(
+                      new TimelineMax()
+                      .set([$argument__imageWrapper, $argument__details], {opacity: 0})
+                      .fromTo($argument__imageWrapper, 1, {
+                          y: -55
+                      }, {
+                          y: 0,
+                          opacity: 1,
+                          clearProps: 'transform, opacity',
+                          ease: Back.easeOut.config(1.4)
+                      }, 0.35)
+                      .fromTo([$argument__details], 1, {
+                          y: 55
+                      }, {
+                          y: 0,
+                          opacity: 1,
+                          clearProps: 'transform, opacity',
+                          ease: Back.easeOut.config(1.4)
+                      }, 0.35)
+                  ).addTo(scrollMagicController);
+              });
+
+            }
+
+
+            // ANIMATION FOR grant SECTION
+            if ($(this).hasClass('grant')) {
+              var $grant_h2 = $('h2', this),
+                  $grant__item = $('.grant__item', this);
+
+              new ScrollMagic.Scene({reverse: false, triggerElement: elem, offset: 158, triggerHook: 100})
+                              .setTween(
+                                new TimelineMax()
+                                .set([$grant_h2, $grant__item], {opacity: 0})
+
+                                .fromTo($grant_h2, 1, {
+                                    y: 55
+                                }, {
+                                    y: 0,
+                                    opacity: 1,
+                                    clearProps: 'transform, opacity',
+                                    ease: Back.easeOut.config(1.4)
+                                }, 0.35)
+
+                                .staggerFromTo($grant__item, 1, {
+                                  y: 80
+                                },
+                                {
+                                  y: 0,
+                                  opacity: 1
+                                }, 0.09)
+
+                            ).addTo(scrollMagicController);
+
+            }
+
+
+            // ANIMATION FOR portfolio (project-cases) SECTION
+            if ($(this).hasClass('portfolio')) {
+              var $project_cases_h2 = $('h2', this);
+              new ScrollMagic.Scene({reverse: false, triggerElement: elem, offset: 158, triggerHook: 100})
+                              .setTween(
+                                new TimelineMax()
+                                .set([$project_cases_h2], {opacity: 0})
+
+                                .fromTo($project_cases_h2, 1, {
+                                    y: 55
+                                }, {
+                                    y: 0,
+                                    opacity: 1,
+                                    clearProps: 'transform, opacity',
+                                    ease: Back.easeOut.config(1.4)
+                                }, 0.35)
+
+                            ).addTo(scrollMagicController);
+
+                  $('.project', this).each(function (i, project) {
+                    var $project__image = $('.project__img', project),
+                        $project__desc = $('.project__desc', project);
+
+
+                        new ScrollMagic.Scene({reverse: false, triggerElement: project, offset: 0, triggerHook: 0.7})
+                        .setTween(
+                          new TimelineMax()
+                          .set([$project__image,$project__desc], {opacity: 0})
+                          .fromTo($project__image, 1, {
+                              y: -55
+                          }, {
+                              y: 0,
+                              opacity: 1,
+                              clearProps: 'transform, opacity',
+                              ease: Back.easeOut.config(1.4)
+                          }, 0.35)
+                          .fromTo([$project__desc], 1, {
+                              y: 55
+                          }, {
+                              y: 0,
+                              opacity: 1,
+                              clearProps: 'transform, opacity',
+                              ease: Back.easeOut.config(1.4)
+                          }, 0.35)
+                      ).addTo(scrollMagicController);
+                  });
+
+
+            } // endif
+
+
+            // ANIMATION FOR grant SECTION
+            if ($(this).hasClass('grant-faq')) {
+              var $grant_faq_h2 = $('h2', this),
+                  $grant__step1 = $('.grant-faq__step', this).eq(0),
+                  $grant__step2 = $('.grant-faq__step', this).eq(1),
+                  $grant__step3 = $('.grant-faq__step', this).eq(2);
+
+              new ScrollMagic.Scene({reverse: false, triggerElement: elem, offset: 158, triggerHook: 100})
+                              .setTween(
+                                new TimelineMax()
+                                .set([$grant_faq_h2, $grant__step1, $grant__step2, $grant__step3], {opacity: 0})
+
+                                .fromTo($grant_faq_h2, 1, {
+                                    y: 55
+                                }, {
+                                    y: 0,
+                                    opacity: 1,
+                                    clearProps: 'transform, opacity',
+                                    ease: Back.easeOut.config(1.4)
+                                }, 0.35)
+
+                                .fromTo($grant__step1, 1, {
+                                  y: 80
+                                },
+                                {
+                                  y: 0,
+                                  opacity: 1
+                                }, '-=0.7')
+                                .fromTo($grant__step2, 1, {
+                                  y: -80
+                                },
+                                {
+                                  y: 0,
+                                  opacity: 1
+                                }, '-=0.7')
+                                .fromTo($grant__step3, 1, {
+                                  y: 80
+                                },
+                                {
+                                  y: 0,
+                                  opacity: 1
+                                }, '-=0.7')
+
+                            ).addTo(scrollMagicController);
+
+            }
+
+            // ANIMATION FOR grant SECTION
+            if ($(this).hasClass('get-audit')) {
+              var $audit_h2 = $('h2 span', this),
+                  $audit_subtitle = $('.subtitle', this),
+                  $audit_form_elements = $('.form-group, button, .post-comment', this),
+                  $audit_bg = $('.audit-bg', this);
+
+
+              new ScrollMagic.Scene({reverse: false, triggerElement: elem, offset: 158, triggerHook: 100})
+                              .setTween(
+                                new TimelineMax()
+                                .set([$audit_h2, $audit_subtitle, $audit_form_elements, $audit_bg], {opacity: 0})
+
+                                .staggerFromTo($audit_h2, 1, {
+                                    y: 55
+                                }, {
+                                    y: 0,
+                                    opacity: 1,
+                                    clearProps: 'transform, opacity',
+                                    ease: Back.easeOut.config(1.4)
+                                }, 0.15)
+                                .fromTo($audit_subtitle, 0.5, {
+                                    y: 55
+                                }, {
+                                    y: 0,
+                                    opacity: 1,
+                                    clearProps: 'transform, opacity',
+                                    ease: Back.easeOut.config(1.4)
+                                }, 0.35)
+
+                                .staggerFromTo($audit_form_elements, 0.5, {
+                                  y: 15
+                                },
+                                {
+                                  y: 0,
+                                  opacity: 1
+                                }, 0.3, '-=0.7')
+                                .to($audit_bg, 1,
+                                {
+                                  opacity: 1
+                                }, '-=0.7')
+
+
+                            ).addTo(scrollMagicController);
+
+            }
+
+
+            // ANIMATION FOR portfolio-gallery SECTION
+            if ($(this).hasClass('portfolio-gallery')) {
+              var $gallery_h2 = $('h2', this),
+                  $gallery__item = $('.gallery__item', this);
+
+              new ScrollMagic.Scene({reverse: false, triggerElement: elem, offset: 158, triggerHook: 100})
+                              .setTween(
+                                new TimelineMax()
+                                .set([$gallery_h2, $gallery__item], {opacity: 0})
+
+                                .fromTo($gallery_h2, 1, {
+                                    y: 55
+                                }, {
+                                    y: 0,
+                                    opacity: 1,
+                                    clearProps: 'transform, opacity',
+                                    ease: Back.easeOut.config(1.4)
+                                }, 0.35)
+
+                                .staggerFromTo($gallery__item, 1, {
+                                  y: 80
+                                },
+                                {
+                                  y: 0,
+                                  opacity: 1
+                                }, 0.09, '-=0.7')
+
+                            ).addTo(scrollMagicController);
+
+            }
+            // ANIMATION FOR prices SECTION
+            if ($(this).hasClass('prices')) {
+              var $prices_h2 = $('h2', this),
+                  $prices__list_column_plan = $('.prices__list-column--plan', this),
+                  $prices__list_row_services = $('.prices__list-column--services .prices__list-row').not('.prices__list-header');
+
+              new ScrollMagic.Scene({reverse: false, triggerElement: elem, offset: 158, triggerHook: 100})
+                              .setTween(
+                                new TimelineMax()
+                                .set([$prices_h2, $prices__list_column_plan, $prices__list_row_services], {opacity: 0})
+
+                                .fromTo($prices_h2, 1, {
+                                    y: 55
+                                }, {
+                                    y: 0,
+                                    opacity: 1,
+                                    clearProps: 'transform, opacity',
+                                    ease: Back.easeOut.config(1.4)
+                                }, 0.35)
+                                .staggerFromTo($prices__list_row_services, 1, {
+                                    y: 55
+                                }, {
+                                    y: 0,
+                                    opacity: 1,
+                                    clearProps: 'transform, opacity',
+                                    ease: Back.easeOut.config(1.4)
+                                }, 0.011, '-=1')
+
+                                .staggerFromTo($prices__list_column_plan, 1, {
+                                  x: 200
+                                },
+                                {
+                                  x: 0,
+                                  opacity: 1
+                                }, 0.25, '-=0.75')
+
+                            ).addTo(scrollMagicController);
+
+            }
+
+
+            // ANIMATION FOR reviews SECTION
+            if ($(this).hasClass('reviews')) {
+              var $reviews_h2 = $('h2', this);
+
+
+              new ScrollMagic.Scene({reverse: false, triggerElement: elem, offset: 158, triggerHook: 100})
+                              .setTween(
+                                new TimelineMax()
+                                .set([$reviews_h2], {opacity: 0})
+
+                                .fromTo($reviews_h2, 1, {
+                                    y: 55
+                                }, {
+                                    y: 0,
+                                    opacity: 1,
+                                    clearProps: 'transform, opacity',
+                                    ease: Back.easeOut.config(1.4)
+                                }, 0.35)
+
+                            ).addTo(scrollMagicController);
+
+            }
+
+
+
+
+
+        }); // loop ended
+
+
+
+      }
+
 
 
 });

@@ -355,7 +355,10 @@
 
 
         <section class="arguments s6">
-            <div class="argument argument--first">
+            <div class="argument argument--first arugument--with-parallax">
+                <div class="parallax-element">
+                    <img src="/img/spheres-parallax.png" class="parallax-img" />
+                </div>
                 <div class="container">
                     <div class="row">
                         <h2 class="beforeAnim"><span>ПОЧЕМУ РАЗРАБОТКА LANDING PAGE</span><span>У НАС СТОИТ <span class="brown">ОТ 90 000 РУБ.</span></span></h2>
@@ -459,7 +462,10 @@
                     </div>
                 </div>
             </div>
-            <div class="argument argument--inverted">
+            <div class="argument argument--inverted argument--4 arugument--with-parallax">
+              <div class="parallax-element">
+                  <img src="/img/spheres-parallax2.png" class="parallax-img" />
+              </div>
                 <div class="container">
                     <div class="row">
                         <div class="col col--6-of-12 col--am col--push-6-of-12">
@@ -774,7 +780,10 @@
         </section>
 
         <section class="reviews s11" id="reviews">
-
+          <div class="parallax-element">
+              <img src="/img/spheres-parallax3.png" class="parallax-img parallax-img--left" />
+              <img src="/img/spheres-parallax4.png" class="parallax-img parallax-img--right" />
+          </div>
             <div class="container">
                 <div class="row">
                     <h2 class="beforeAnim reverse"><span>Отзывы о нашей работе</span></h2>
@@ -963,8 +972,9 @@
                 nua.indexOf('AppleWebKit') > -1) && !(nua.indexOf('Chrome') > -1));
 
             function switchClassesDependences(){
-                  if(is_android_default_bro) {
+                  if(is_android_default_bro) { 
                     addClass(coreElement, 'is_android_default_bro');
+
                   } else {
                     removeClass(coreElement, 'is_android_default_bro');
                   }
