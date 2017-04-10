@@ -41,6 +41,7 @@
     "localtunnel": "^1.8.1",
     "merge-stream": "^1.0.0",
     "ngrok": "^2.2.2",
+    "node-sass": "^4.5.2",
     "path": "^0.12.7",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.2.2",
