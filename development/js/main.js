@@ -202,10 +202,6 @@ jQuery(document).ready(function($) {
                       dataType: 'json',
                       cache: false,
                       beforeSend: function(r) {
-                          // $form.hide();
-                          // $('.remodal--action__title', $context).html('Отправка заявки...');
-                          // $('.remodal__description', $context).html('');
-                          // $('.submit-loader', $context).removeClass('submit-loader--paused');
                             $progressBtn.prop('disabled', true).progressSet(97);
 
                       }
@@ -241,136 +237,156 @@ jQuery(document).ready(function($) {
           // OpenSeadragon (deep zooming) - base settings
           // ----------------------------------------------------------------------------
           /** Init global viewer instance **/
-          var viewer;
-          var viewerHasStarted = false;
-
-          /** Translate buttons labels **/
-          OpenSeadragon.setString("Tooltips.Home","Сбросить");
-          OpenSeadragon.setString("Tooltips.ZoomOut","Уменьшить");
-          OpenSeadragon.setString("Tooltips.ZoomIn", "Увеличить");
-
-
-
-          /**
-           * Custom event handler for reset-viewport button
-           */
-          /**
-           * @param Boolean withAnimation
-           */
-          function resetViewportToStartPosition(disableScaleAnimation) {
-                // disable animation (default true)
-                var disableScaleAnimation = disableScaleAnimation == false ? false : true;
-                var oldBounds = viewer.viewport.getBounds();
-                var newBounds = new OpenSeadragon.Rect(0, 0, 1, oldBounds.height / oldBounds.width);
-                viewer.viewport.fitBounds(newBounds, disableScaleAnimation);
-          }
-
-          /**
-           * @param  String containerId
-           * @param  String imageUrl
-           */
-          function initDeepZoom(containerId, imageUrl, callback) {
-            // write to global - basic settings with necessary parametrs
-
-
-              viewer = OpenSeadragon({
-                id:  containerId,
-                tileSources: {
-                  type: 'image',
-                  url: imageUrl,
-                },
-                toolbar:        "remodal-zoom-toolbar",
-                zoomInButton : "zoom-in--remodal",
-                zoomOutButton : "zoom-out--remodal",
-                // custom not extist for prevent error
-                // homeButton:     "not1",
-                // fullPageButton: "not2",
-                // nextButton:     "not3",
-                // previousButton: "not4",
-
-                visibilityRatio : 1,
-                defaultZoomLevel : 1,
-                // minZoomLevel : 1,
-                // allowZoomToConstraintsOnResize : true,
-                showNavigator : true,
-                showFullScreenControl: false,
-                showFullPageControl: false,
-                showHomeControl: false,
-                showRotationControl: false,
-                navigatorPosition : "TOP_RIGHT",
-              });
-              // events stuff
-              (function(_viewer) {
-                var zoom,
-                oldContainerSize,
-                containerSize;
-
-                viewer.addHandler("open", function () {
-                  setTimeout(function () {
-                    resetViewportToStartPosition();
-                  },0);
-                });
-
-                viewer.addHandler('resize', function(e) {
-                  zoom = e.eventSource.viewport.getZoom();
-                  oldContainerSize = containerSize;
-                  containerSize = e.newContainerSize;
-
-                });
-
-                viewer.addHandler('animation', function(e) {
-                  zoom = e.eventSource.viewport.getZoom();
-                });
-                viewer.addHandler('tile-loaded', function(e) {
-
-                  typeof callback === 'function' ? callback() : console.log('scene initialized');
-                });
-              })(viewer);
-
-              if(!viewerHasStarted) viewerHasStarted = true;
-
-
-
-
-          }
-
-
-
-          /**
-           * custom events for navigation in zoom-remodal
-           */
-          $('.lg-icon--remodal').on('click', function () {
-            //
-            if($(this).hasClass('lg-actual-size--remodal')) {
-              resetViewportToStartPosition(false);
-            }
-            if($('.lg-icon--remodal').hasClass('active')) {
-              $('.lg-icon--remodal').removeClass('active')
-            }
-            $(this).addClass('active');
-          })
-
-          /**
-           * Set fixed dynamic height to container
-           */
-          $window.on('resize', $.throttle(250, function () {
-            $('.remodal--zoom-images .zoom-images').css({
-              height: ($window.height() - 60) + 'px'
-            });
-          })).trigger('resize');
+          // var viewer;
+          // var viewerHasStarted = false;
+          //
+          // /** Translate buttons labels **/
+          // OpenSeadragon.setString("Tooltips.Home","Сбросить");
+          // OpenSeadragon.setString("Tooltips.ZoomOut","Уменьшить");
+          // OpenSeadragon.setString("Tooltips.ZoomIn", "Увеличить");
+          //
+          //
+          //
+          // /**
+          //  * Custom event handler for reset-viewport button
+          //  */
+          // /**
+          //  * @param Boolean withAnimation
+          //  */
+          // function resetViewportToStartPosition(disableScaleAnimation) {
+          //       // disable animation (default true)
+          //       var disableScaleAnimation = disableScaleAnimation == false ? false : true;
+          //       var oldBounds = viewer.viewport.getBounds();
+          //       var newBounds = new OpenSeadragon.Rect(0, 0, 1, oldBounds.height / oldBounds.width);
+          //       viewer.viewport.fitBounds(newBounds, disableScaleAnimation);
+          // }
+          //
+          // /**
+          //  * @param  String containerId
+          //  * @param  String imageUrl
+          //  */
+          // function initDeepZoom(containerId, imageUrl, callback) {
+          //   // write to global - basic settings with necessary parametrs
+          //
+          //
+          //     viewer = OpenSeadragon({
+          //       id:  containerId,
+          //       tileSources: {
+          //         type: 'image',
+          //         url: imageUrl,
+          //       },
+          //       toolbar:        "remodal-zoom-toolbar",
+          //       zoomInButton : "zoom-in--remodal",
+          //       zoomOutButton : "zoom-out--remodal",
+          //       // custom not extist for prevent error
+          //       // homeButton:     "not1",
+          //       // fullPageButton: "not2",
+          //       // nextButton:     "not3",
+          //       // previousButton: "not4",
+          //
+          //       visibilityRatio : 1,
+          //       defaultZoomLevel : 1,
+          //       // minZoomLevel : 1,
+          //       // allowZoomToConstraintsOnResize : true,
+          //       showNavigator : true,
+          //       showFullScreenControl: false,
+          //       showFullPageControl: false,
+          //       showHomeControl: false,
+          //       showRotationControl: false,
+          //       // zoomPerScroll: 1,
+          //       navigatorPosition : "TOP_RIGHT",
+          //
+          //     });
+          //     // events stuff
+          //     (function(_viewer) {
+          //       var viewer =_viewer,
+          //       zoom,
+          //       oldContainerSize,
+          //       containerSize;
+          //
+          //       viewer.addHandler("open", function () {
+          //         setTimeout(function () {
+          //           resetViewportToStartPosition();
+          //         },0);
+          //       });
+          //
+          //       viewer.addHandler('resize', function(e) {
+          //         zoom = e.eventSource.viewport.getZoom();
+          //         oldContainerSize = containerSize;
+          //         containerSize = e.newContainerSize;
+          //
+          //       });
+          //
+          //       viewer.addHandler('fullpage', function (viewer) {
+          //           if (viewer.isFullPage()) {
+          //               viewer.setControlsEnabled(true);
+          //               viewer.setMouseNavEnabled(true);
+          //           } else {
+          //               viewer.setControlsEnabled(false);
+          //               viewer.setMouseNavEnabled(false);
+          //           }
+          //       });
+          //       viewer.addHandler('animation', function(e) {
+          //         zoom = e.eventSource.viewport.getZoom();
+          //       });
+          //       viewer.addHandler('tile-loaded', function(e) {
+          //
+          //         typeof callback === 'function' ? callback() : console.log('scene initialized');
+          //       });
+          //     })(viewer);
+          //
+          //     if(!viewerHasStarted) viewerHasStarted = true;
+          //
+          //
+          //
+          //
+          // }
+          //
+          //
+          //
+          // /**
+          //  * custom events for navigation in zoom-remodal
+          //  */
+          // $('.lg-icon--remodal').on('click', function () {
+          //   //
+          //   if($(this).hasClass('lg-actual-size--remodal')) {
+          //     resetViewportToStartPosition(false);
+          //   }
+          //   if($('.lg-icon--remodal').hasClass('active')) {
+          //     $('.lg-icon--remodal').removeClass('active')
+          //   }
+          //   $(this).addClass('active');
+          // })
+          //
+          // /**
+          //  * Set fixed dynamic height to container
+          //  */
+          // $window.on('resize', $.throttle(250, function () {
+          //   $('.remodal--zoom-images .zoom-images').css({
+          //     height: ($window.height() - 60) + 'px'
+          //   });
+          // })).trigger('resize');
 
           /**
            * Remodal events for zoom-images remodal
            */
+
+
+
           // remove padding
           $(document).on('opening', '.remodal--zoom-images', function(e) {
-              if(viewerHasStarted) {
-                $('.zoom-scene-overlay').show();
-                setTimeout(function () {
-                  $('.zoom-scene-overlay').fadeOut();
-                }, 3000)
-              }
-              $('.remodal--zoom-images').parent().css({'padding-bottom': 0});
+
+              // if(viewerHasStarted) {
+              //   $('.zoom-scene-overlay').show();
+              //   setTimeout(function () {
+              //     $('.zoom-scene-overlay').fadeOut();
+              //   }, 3000)
+              // }
+              setTimeout(function() {
+                 $('.remodal--zoom-images').closest('.remodal-wrapper').addClass('remodal-wrapper--fixed');
+                }, 30);
+
+
               /** hot fix for Android browser **/
               if (is_android_default_bro) {
                 //
@@ -382,7 +398,7 @@ jQuery(document).ready(function($) {
           });
           // remove image canvas stuff after close && fadeIn overlay with preloader
           $(document).on('closing', '.remodal--zoom-images', function(e) {
-              $('.zoom-scene-overlay').fadeIn();
+              // $('.zoom-scene-overlay').fadeIn();
 
                 $('.zoom-images').html('');
 
@@ -395,14 +411,14 @@ jQuery(document).ready(function($) {
           // ----------------------------------------------------------------------------
           var projectCasesList = [
             {
-              url: '/img/project-cases/1.jpg',
+              url: 'img/project-cases/big/1-doma.jpg',
             },
             {
-              url: '/img/project-cases/2.jpg',
+              url: 'img/project-cases/big/2-shapki.jpg',
 
             },
             {
-              url: '/img/project-cases/3.jpg',
+              url: 'img/project-cases/big/3-geodezia.jpg',
 
             },
 
@@ -418,11 +434,17 @@ jQuery(document).ready(function($) {
                 var projectId = $(this).data('project-id'),
                     currentProjectCase = projectCasesList[+projectId-1];
 
-                // start zoom scene
-                initDeepZoom("zoom-images", currentProjectCase.url, function () {
-                  $('.zoom-scene-overlay').fadeOut();
-                  $('#zoom-images').data('projectId', currentProjectCase.url);
-                });
+                // load image
+                // deferImage(currentProjectCase.url, function () {
+                //   $('#zoom-images').html('<img class="zoom-image" src="' + currentProjectCase.url + '" />');
+                //   $('.zoom-scene-overlay').fadeOut();
+                // });
+                //  $('.zoom-scene-overlay').fadeOut();
+                  $('#zoom-images').html('<img class="zoom-image" src="' + currentProjectCase.url + '" />');
+                // initDeepZoom("zoom-images", currentProjectCase.url, function () {
+                //   $('.zoom-scene-overlay').fadeOut();
+                //   $('#zoom-images').data('projectId', currentProjectCase.url);
+                // });
 
 
 
@@ -434,38 +456,50 @@ jQuery(document).ready(function($) {
           // ----------------------------------------------------------------------------
           var portfolioGalleryList = [
             {
-              url: '/img/gallery/big/1-consult.jpg',
+              url: 'img/gallery/big/1_aviacionnyj_uchebnyj_centr_gamajun.jpg',
             },
             {
-              url: '/img/gallery/big/2-orgcenter.jpg',
+              url: 'img/gallery/big/2_detskij_lageri_materik.jpg',
 
             },
             {
-              url: '/img/gallery/big/3-geodezia.jpg',
+              url: 'img/gallery/big/3_dizajnerskie_kukhni.jpg',
 
             },
             {
-              url: '/img/gallery/big/4-floating.jpg',
+              url: 'img/gallery/big/4_kraska_ot_kompanii_favorit.jpg',
 
             },
             {
-              url: '/img/gallery/big/5-kadastr.jpg',
+              url: 'img/gallery/big/5_kredit_pod_zalog_nedvizhimosti.jpg',
 
             },
             {
-              url: '/img/gallery/big/6-geodezia.jpg',
+              url: 'img/gallery/big/6_natjazhnye_potolki_hottabych.jpg',
 
             },
             {
-              url: '/img/gallery/big/7-geodezia.jpg',
+              url: 'img/gallery/big/7_organizacija_prazdnikov_best_event.jpg',
 
             },
             {
-              url: '/img/gallery/big/8-flowers.jpg',
+              url: 'img/gallery/big/8_orgcentr_himki_zapravka_i_prodazha_kartridzhej.jpg',
 
             },
             {
-              url: '/img/gallery/big/9-geodezia.jpg',
+              url: 'img/gallery/big/9_osparivanie_kadastrovoj_stoimosti_nedvizhimosti.jpg',
+
+            },
+            {
+              url: 'img/gallery/big/10_prodazha_iskusstvennykh_elok.jpg',
+
+            },
+            {
+              url: 'img/gallery/big/11_remont_kvartir_pod_kljuch.jpg',
+
+            },
+            {
+              url: 'img/gallery/big/12_shc_herbinskij_liftostroitelinyj_zavod.jpg',
 
             },
 
@@ -481,11 +515,20 @@ jQuery(document).ready(function($) {
                 var projectId = $(this).data('project-id'),
                     currentPortfolioProject = portfolioGalleryList[+projectId-1];
 
-                // start zoom scene
-                initDeepZoom("zoom-images", currentPortfolioProject.url);
-                  setTimeout(function () {
-                    $('.zoom-scene-overlay').fadeOut();
-                  }, 1000);
+                // load image
+                // deferImage(currentPortfolioProject.url, function () {
+                //   $('#zoom-images').html('<img class="zoom-image" src="' + currentPortfolioProject.url + '" />');
+                //   $('.zoom-scene-overlay').fadeOut();
+                // });
+                $('.zoom-scene-overlay').fadeOut();
+                  $('#zoom-images').html('<img class="zoom-image" src="' + currentPortfolioProject.url + '" />');
+
+
+                // // start zoom scene
+                // initDeepZoom("zoom-images", currentPortfolioProject.url);
+                //   setTimeout(function () {
+                //     $('.zoom-scene-overlay').fadeOut();
+                //   }, 1000);
 
                 });
 

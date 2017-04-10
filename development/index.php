@@ -254,27 +254,27 @@
 
                     <div class="grant__list">
                         <div class="col col--4-of-12 col--m-1-of-2 grant__item">
-                            <div class="grant__title">25 000 руб</div>
+                            <div class="grant__title">25 000 руб</div>
                             <div class="grant__desc">На создание<br />Landing Page</div>
                         </div>
                         <div class="col col--4-of-12 col--m-1-of-2 grant__item">
-                            <div class="grant__title">50 000 руб</div>
+                            <div class="grant__title">50 000 руб</div>
                             <div class="grant__desc">На поиск<br />продавца</div>
                         </div>
                         <div class="col col--4-of-12 col--m-1-of-2 grant__item">
-                            <div class="grant__title">5 000 руб</div>
+                            <div class="grant__title">5 000 руб</div>
                             <div class="grant__desc">На настройку<br />рекламной кампании</div>
                         </div>
                         <div class="col col--4-of-12 col--m-1-of-2 grant__item">
-                            <div class="grant__title">4 000 руб</div>
+                            <div class="grant__title">4 000 руб</div>
                             <div class="grant__desc">На аналитику<br />сайта и РК</div>
                         </div>
                         <div class="col col--4-of-12 col--m-1-of-2 grant__item">
-                            <div class="grant__title">10 000 руб</div>
+                            <div class="grant__title">10 000 руб</div>
                             <div class="grant__desc">На мобильную<br />версию сайта</div>
                         </div>
                         <div class="col col--4-of-12 col--m-1-of-2 grant__item">
-                            <div class="grant__title">6 000 руб</div>
+                            <div class="grant__title">6 000 руб</div>
                             <div class="grant__desc">На SEO<br />продвижение</div>
                         </div>
                     </div>
@@ -1184,6 +1184,54 @@
         <!-- <script src="/js/scripts.js" charset="utf-8"></script> -->
     </div>
     <!-- END OF SITE WRAPPER -->
+    <script type="text/javascript">
+    function submitRemodalForm(form, $context, task) {
+        /**
+         * formPopupNumberId - is way to identify what type of form is present form - callback or baseOrder
+         */
+
+        var $form = $(form),
+            $progressBtn = $('.progress-button', $form);
+        /*  prepare serialized array for the addition of a form type identifier  */
+        var form_data = $form.serializeFormJSON();
+        console.log(form_data);
+
+            $.ajax({
+                url: '/ajax.php',
+                type: 'POST',
+                data: form_data,
+                dataType: 'json',
+                cache: false,
+                beforeSend: function(r) {
+                      $progressBtn.prop('disabled', true).progressSet(97);
+
+                }
+            }).always(function(r) {
+
+            }).done(function(r) {
+                // alert('done');
+                console.log(r);
+
+                $form.trigger('reset');
+                $progressBtn.progressSet(100);
+                setTimeout(function () {
+
+                  $progressBtn.prop('disabled', false).removeClass('finished');
+
+                },3000);
+
+            }).fail(function(request, textStatus, errorThrown) {
+                // alert('fail');
+                console.log(request.responseText);
+                console.log(textStatus);
+                console.log(errorThrown);
+            });
+
+
+
+    };
+    </script>
+
 </body>
 
 </html>
